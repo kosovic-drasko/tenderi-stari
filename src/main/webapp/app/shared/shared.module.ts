@@ -39,9 +39,11 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { getDutchPaginatorIntl } from '../dutch-paginator-intl';
 import { MatPaginatorIntl } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   imports: [
+    MatTableModule,
     SharedLibsModule,
     MatButtonModule,
     MatCheckboxModule,
@@ -84,6 +86,7 @@ import { MatPaginatorIntl } from '@angular/material/paginator';
   ],
 
   exports: [
+    MatTableModule,
     MatButtonModule,
     MatCheckboxModule,
     MatFormFieldModule,
