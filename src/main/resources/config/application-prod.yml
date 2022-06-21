@@ -45,10 +45,16 @@ spring:
   liquibase:
     contexts: prod
   mail:
-    host: localhost
-    port: 25
-    username:
-    password:
+    host: smtp-mail.outlook.com
+    port: 587
+    username: kosovic.drasko@hotmail.com #Replace this field with your Outlook username.
+    password: drasko1959 #Replace this field with your Outlook password.
+    protocol: smtp
+    tls: true
+    properties.mail.smtp:
+      auth: true
+      starttls.enable: true
+      ssl.trust: smtp-mail.outlook.com
   thymeleaf:
     cache: true
   sleuth:
@@ -115,7 +121,7 @@ jhipster:
         # - In the JHipster Registry (which includes a Spring Cloud Config server)
         # - In a separate `application-prod.yml` file, in the same folder as your executable JAR file
         # - In the `JHIPSTER_SECURITY_AUTHENTICATION_JWT_BASE64_SECRET` environment variable
-        base64-secret: NDNhZjNmYzQ1MDc0YTgwZjQxZWZhNDMyZjgzZGI3MTZkMjJkNTZkMTc3NzM2Y2JlNzhhMTQ4NjgzMTU4NzFmMGQ5OTc2Y2ZjYWVjOWQ0MDViYjVkNGE2YWVkMmU2YzhmOWU0YzQzZjFlNjI2MzFlMGQ5Nzg2NzRlY2QwYjQ0N2Q=
+        base64-secret: ZDY5NTNlMjdhNzA2YzZmNzM5M2NhNmQzZjU5N2I1NzhhMWNmZjI2Mjc1NWZkMTVkMzlkMThiMDAzOWJjOTc1Y2FlYTI1MDlkYjUzMGY2ZDQzYzA3YjI4OGJiYWRkYmIyOTNkYWEyNzkyNjhiOGIxNzQzOGM0N2IyMDdlZGYwMTU=
         # Token is valid 24 hours
         token-validity-in-seconds: 86400
         token-validity-in-seconds-for-remember-me: 2592000

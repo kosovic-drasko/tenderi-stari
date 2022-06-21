@@ -59,6 +59,11 @@ public class SecurityConfiguration {
                 .antMatchers("/i18n/**")
                 .antMatchers("/content/**")
                 .antMatchers("/swagger-ui/**")
+                .antMatchers("/api/ponude/file")
+                .antMatchers("/api/specifikacije/file")
+                .antMatchers("/api/uploadfiles/specifikacije")
+                .antMatchers("/api/set")
+                .antMatchers("/api/upload")
                 .antMatchers("/test/**");
     }
 
@@ -88,11 +93,14 @@ public class SecurityConfiguration {
         .and()
             .authorizeRequests()
             .antMatchers("/api/authenticate").permitAll()
+            
             .antMatchers("/api/register").permitAll()
+            .antMatchers("/api/ponude/file/**").permitAll()
             .antMatchers("/api/activate").permitAll()
             .antMatchers("/api/account/reset-password/init").permitAll()
             .antMatchers("/api/account/reset-password/finish").permitAll()
             .antMatchers("/api/admin/**").hasAuthority(AuthoritiesConstants.ADMIN)
+            .antMatchers("/api/**").hasAuthority(AuthoritiesConstants.MANAGER)
             .antMatchers("/api/**").authenticated()
             .antMatchers("/management/health").permitAll()
             .antMatchers("/management/health/**").permitAll()
