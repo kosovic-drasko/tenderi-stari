@@ -161,15 +161,9 @@
               </a>
             </li>
             <li *ngSwitchCase="false">
-              <a
-                class="dropdown-item"
-                routerLink="account/register"
-                routerLinkActive="active"
-                (click)="collapseNavbar()"
-                data-cy="register"
-              >
+              <a class="dropdown-item" routerLinkActive="active" (click)="addRegistracija()" data-cy="register">
                 <fa-icon icon="user-plus" [fixedWidth]="true"></fa-icon>
-                <span>Register</span>
+                <span jhiTranslate="global.menu.account.register">Register</span>
               </a>
             </li>
           </ul>

@@ -7,9 +7,20 @@ import { UserManagementDetailComponent } from './detail/user-management-detail.c
 import { UserManagementUpdateComponent } from './update/user-management-update.component';
 import { UserManagementDeleteDialogComponent } from './delete/user-management-delete-dialog.component';
 import { userManagementRoute } from './user-management.route';
+import { MatTableModule } from '@angular/material/table';
+import { MatTableExporterModule } from 'mat-table-exporter';
+import { MatSortModule } from '@angular/material/sort';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
-  imports: [SharedModule, RouterModule.forChild(userManagementRoute)],
+  imports: [
+    SharedModule,
+    RouterModule.forChild(userManagementRoute),
+    MatTableModule,
+    MatTableExporterModule,
+    MatSortModule,
+    MatPaginatorModule,
+  ],
   declarations: [
     UserManagementComponent,
     UserManagementDetailComponent,

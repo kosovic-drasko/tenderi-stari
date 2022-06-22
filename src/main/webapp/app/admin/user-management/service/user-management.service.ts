@@ -37,4 +37,16 @@ export class UserManagementService {
   authorities(): Observable<string[]> {
     return this.http.get<string[]>(this.applicationConfigService.getEndpointFor('api/authorities'));
   }
+  deleteUser(id: number): void {
+    this.http.delete(`${this.resourceUrl}/${id}`).subscribe(
+      () => {
+        // eslint-disable-next-line no-console
+        console.log('obrisano');
+      },
+      () => {
+        // eslint-disable-next-line no-console
+        console.log('nije obrisano');
+      }
+    );
+  }
 }
