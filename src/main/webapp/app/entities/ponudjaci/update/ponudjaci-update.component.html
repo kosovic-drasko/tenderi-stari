@@ -1,0 +1,81 @@
+<h2 mat-dialog-title>Ponudjaci</h2>
+<mat-dialog-content [formGroup]="editForm" class="mat-typography">
+  <jhi-alert-error></jhi-alert-error>
+  <div class="container">
+    <mat-form-field>
+      <div>
+        <input matInput placeholder="naziv Ponudjaca" formControlName="nazivPonudjaca" />
+        <div
+          *ngIf="
+            editForm.get('nazivPonudjaca')!.invalid && (editForm.get('nazivPonudjaca')!.dirty || editForm.get('nazivPonudjaca')!.touched)
+          "
+        >
+          <small
+            class="form-text text-danger"
+            *ngIf="editForm.get('nazivPonudjaca')?.errors?.required"
+            jhiTranslate="entity.validation.required"
+          >
+            Obavezno polje.
+          </small>
+        </div>
+      </div>
+    </mat-form-field>
+
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Odgovorno Lice" formControlName="odgovornoLice" />
+        <div
+          *ngIf="editForm.get('odgovornoLice')!.invalid && (editForm.get('odgovornoLice')!.dirty || editForm.get('odgovornoLice')!.touched)"
+        >
+          <small
+            class="form-text text-danger"
+            *ngIf="editForm.get('odgovornoLice')?.errors?.required"
+            jhiTranslate="entity.validation.required"
+          >
+            Obavezno polje.
+          </small>
+        </div>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="adresaPonudjaca" formControlName="adresaPonudjaca" />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="bankaRacun" formControlName="bankaRacun" />
+      </mat-form-field>
+    </div>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button type="button" mat-button color="warn" (click)="close()">
+    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+  </button>
+  <button
+    [hidden]="aktivno == false"
+    id="sacuvaj-button"
+    mat-raised-button
+    color="primary"
+    (click)="save()"
+    [mat-dialog-close]="true"
+    cdkFocusInitial
+  >
+    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+  </button>
+  <button
+    type="submit"
+    [disabled]="editForm.invalid"
+    [hidden]="aktivno == true"
+    mat-button
+    color="primary"
+    (click)="confirmAdd()"
+    [mat-dialog-close]="true"
+    cdkFocusInitial
+  >
+    <fa-icon icon="add"></fa-icon>&nbsp;
+    <span>Dodaj</span>
+  </button>
+</mat-dialog-actions>
