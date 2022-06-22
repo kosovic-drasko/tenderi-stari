@@ -11,12 +11,12 @@
     <mat-button-toggle *jhiHasAnyAuthority="'ROLE_ADMIN'" matTooltip="Unesi Excel fajl" (click)="uploadFile()"
       >Dodaj Fajl
     </mat-button-toggle>
-    <!-- <mat-button-toggle
+    <mat-button-toggle
       *jhiHasAnyAuthority="'ROLE_ADMIN'"
       matTooltip=" Excel fajl"
       (click)="exporter.exportTable('xlsx', { fileName: 'Ponude', sheet: 'sheet_name', Props: { Author: 'Talha' } })"
       ><img src="../../../../content/images/icons8-microsoft-excel-48.png" alt=""
-    /></mat-button-toggle> -->
+    /></mat-button-toggle>
   </mat-button-toggle-group>
   <mat-form-field>
     <input matInput [(ngModel)]="sifraPostupka" matInput placeholder="Sifra Postupka" (keyup)="nadjiPoSifriPostupka()" />
@@ -36,7 +36,19 @@
     <span>Nema zapisa Specifikacije</span>
   </div>
 
-  <table mat-table id="ExampleTable" [dataSource]="dataSource" matSort matSortStart="desc">
+  <table
+    mat-table
+    id="ExampleTable"
+    matTableExporter
+    [dataSource]="dataSource"
+    matSort
+    matSortStart="desc"
+    #exporter="matTableExporter"
+    matSort
+    matSortStart="desc"
+    matSort
+    matSortStart="desc"
+  >
     <ng-container matColumnDef="sifra postupka">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Sifra Postupka</th>
       <td mat-cell *matCellDef="let element">{{ element.sifraPostupka }}</td>
