@@ -19,6 +19,11 @@ import { RouterModule } from '@angular/router';
       //   data: { pageTitle: 'tenderApp.postupci.home.title' },
       //   loadChildren: () => import('./postupci/postupci.module').then(m => m.PostupciModule),
       // },
+      {
+        path: 'tenderi-home',
+        data: { pageTitle: 'tenderApp.tenderiHome.home.title' },
+        loadChildren: () => import('./tenderi-home/tenderi-home.module').then(m => m.TenderiHomeModule),
+      },
     ]),
   ],
 })
