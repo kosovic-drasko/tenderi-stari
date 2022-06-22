@@ -37,7 +37,7 @@ import { Authority } from 'app/config/authority.constants';
       },
       {
         path: 'pomoc',
-        data: { pageTitle: 'tenderApp.pomoc.home.title', authorities: [Authority.MANAGER] },
+        data: { authorities: ['ROLE_MANAGER'], pageTitle: 'tenderApp.pomoc.home.title' },
         loadChildren: () => import('./pomoc/pomoc.module').then(m => m.PomocModule),
       },
     ]),
