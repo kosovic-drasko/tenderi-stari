@@ -10,6 +10,8 @@ import { AccountService } from 'app/core/auth/account.service';
 import { LoginService } from 'app/login/login.service';
 import { ProfileService } from 'app/layouts/profiles/profile.service';
 import { EntityNavbarItems } from 'app/entities/entity-navbar-items';
+import { LoginComponent } from 'app/login/login.component';
+import { RegisterComponent } from 'app/account/register/register.component';
 
 @Component({
   selector: 'jhi-navbar',
@@ -24,6 +26,7 @@ export class NavbarComponent implements OnInit {
   version = '';
   account: Account | null = null;
   entitiesNavbarItems: any[] = [];
+  dialog: any;
 
   constructor(
     private loginService: LoginService,
@@ -62,7 +65,12 @@ export class NavbarComponent implements OnInit {
   login(): void {
     this.router.navigate(['/login']);
   }
-
+  addPrijava(): any {
+    this.dialog.open(LoginComponent);
+  }
+  addRegistracija(): any {
+    this.dialog.open(RegisterComponent);
+  }
   logout(): void {
     this.collapseNavbar();
     this.loginService.logout();

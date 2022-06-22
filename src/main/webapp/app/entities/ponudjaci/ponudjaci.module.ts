@@ -5,10 +5,9 @@ import { PonudjaciDetailComponent } from './detail/ponudjaci-detail.component';
 import { PonudjaciUpdateComponent } from './update/ponudjaci-update.component';
 import { PonudjaciDeleteDialogComponent } from './delete/ponudjaci-delete-dialog.component';
 import { PonudjaciRoutingModule } from './route/ponudjaci-routing.module';
-import { MatPaginator } from '@angular/material/paginator';
 
 @NgModule({
-  imports: [SharedModule, PonudjaciRoutingModule, MatPaginator],
+  imports: [SharedModule, PonudjaciRoutingModule],
   declarations: [PonudjaciComponent, PonudjaciDetailComponent, PonudjaciUpdateComponent, PonudjaciDeleteDialogComponent],
   entryComponents: [PonudjaciDeleteDialogComponent],
 })

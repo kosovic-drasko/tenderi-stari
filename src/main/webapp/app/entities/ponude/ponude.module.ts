@@ -6,10 +6,9 @@ import { PonudeUpdateComponent } from './update/ponude-update.component';
 import { PonudeDeleteDialogComponent } from './delete/ponude-delete-dialog.component';
 import { PonudeRoutingModule } from './route/ponude-routing.module';
 import { MatTableExporterModule } from 'mat-table-exporter';
-import { MatPaginator } from '@angular/material/paginator';
 
 @NgModule({
-  imports: [SharedModule, PonudeRoutingModule, MatTableExporterModule, MatPaginator],
+  imports: [SharedModule, PonudeRoutingModule, MatTableExporterModule],
   declarations: [PonudeComponent, PonudeDetailComponent, PonudeUpdateComponent, PonudeDeleteDialogComponent],
   entryComponents: [PonudeDeleteDialogComponent],
   exports: [PonudeComponent],
