@@ -26,9 +26,10 @@ import { PageRibbonComponent } from './layouts/profiles/page-ribbon.component';
 import { ActiveMenuDirective } from './layouts/navbar/active-menu.directive';
 import { ErrorComponent } from './layouts/error/error.component';
 import { JhMaterialModule } from './shared/jh-material.module';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
     SharedModule,
     HomeModule,
