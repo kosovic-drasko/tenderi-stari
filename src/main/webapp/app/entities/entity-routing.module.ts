@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { Authority } from 'app/config/authority.constants';
 
 @NgModule({
   imports: [
@@ -33,6 +34,11 @@ import { RouterModule } from '@angular/router';
         path: 'tenderi-home',
         data: { pageTitle: 'tenderApp.tenderiHome.home.title' },
         loadChildren: () => import('./tenderi-home/tenderi-home.module').then(m => m.TenderiHomeModule),
+      },
+      {
+        path: 'pomoc',
+        data: { pageTitle: 'tenderApp.pomoc.home.title', authorities: [Authority.MANAGER] },
+        loadChildren: () => import('./pomoc/pomoc.module').then(m => m.PomocModule),
       },
     ]),
   ],
