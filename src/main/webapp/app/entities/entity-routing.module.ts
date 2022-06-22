@@ -29,6 +29,11 @@ import { RouterModule } from '@angular/router';
         data: { pageTitle: 'tenderApp.specifikacije.home.title' },
         loadChildren: () => import('./specifikacije/specifikacije.module').then(m => m.SpecifikacijeModule),
       },
+      {
+        path: 'tenderi-home',
+        data: { pageTitle: 'tenderApp.tenderiHome.home.title' },
+        loadChildren: () => import('./tenderi-home/tenderi-home.module').then(m => m.TenderiHomeModule),
+      },
     ]),
   ],
 })

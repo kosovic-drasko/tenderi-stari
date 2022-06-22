@@ -9,9 +9,11 @@ import { JhMaterialModule } from '../../shared/jh-material.module';
 
 import { MatTabsModule } from '@angular/material/tabs';
 import { HideMeDirective } from './hide-me.directive';
+import { PonudeModule } from '../ponude/ponude.module';
+import { SpecifikacijeModule } from '../specifikacije/specifikacije.module';
 
 @NgModule({
-  imports: [SharedModule, TenderiHomeRoutingModule, MatTabsModule, JhMaterialModule],
+  imports: [SharedModule, TenderiHomeRoutingModule, MatTabsModule, JhMaterialModule, SpecifikacijeModule, PonudeModule],
   declarations: [TenderiHomeComponent, HideMeDirective],
 })
 export class TenderiHomeModule {}
