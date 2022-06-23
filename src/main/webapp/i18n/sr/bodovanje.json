@@ -1,0 +1,29 @@
+{
+  "tenderApp": {
+    "bodovanje": {
+      "home": {
+        "title": "Bodovanjes",
+        "refreshListLabel": "Refresh list",
+        "notFound": "No Bodovanjes found"
+      },
+      "detail": {
+        "title": "Bodovanje"
+      },
+      "id": "ID",
+      "sifraPostupka": "Sifra Postupka",
+      "sifraPonude": "Sifra Ponude",
+      "brojPartije": "Broj Partije",
+      "atc": "Atc",
+      "nazivProizvodjaca": "Naziv Proizvodjaca",
+      "nazivPonudjaca": "Naziv Ponudjaca",
+      "zasticeniNaziv": "Zasticeni Naziv",
+      "trazenaKolicina": "Trazena Kolicina",
+      "procijenjenaVrijednost": "Procijenjena Vrijednost",
+      "ponudjenaVrijednost": "Ponudjena Vrijednost",
+      "rokIsporuke": "Rok Isporuke",
+      "bodCijena": "Bod Cijena",
+      "bodRok": "Bod Rok",
+      "bodUkupno": "Bod Ukupno"
+    }
+  }
+}
