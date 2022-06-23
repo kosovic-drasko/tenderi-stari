@@ -1,0 +1,80 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="bodovanje">
+      <h2 data-cy="bodovanjeDetailsHeading"><span jhiTranslate="tenderApp.bodovanje.detail.title">Bodovanje</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ bodovanje.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="tenderApp.bodovanje.sifraPostupka">Sifra Postupka</span></dt>
+        <dd>
+          <span>{{ bodovanje.sifraPostupka }}</span>
+        </dd>
+        <dt><span jhiTranslate="tenderApp.bodovanje.sifraPonude">Sifra Ponude</span></dt>
+        <dd>
+          <span>{{ bodovanje.sifraPonude }}</span>
+        </dd>
+        <dt><span jhiTranslate="tenderApp.bodovanje.brojPartije">Broj Partije</span></dt>
+        <dd>
+          <span>{{ bodovanje.brojPartije }}</span>
+        </dd>
+        <dt><span jhiTranslate="tenderApp.bodovanje.atc">Atc</span></dt>
+        <dd>
+          <span>{{ bodovanje.atc }}</span>
+        </dd>
+        <dt><span jhiTranslate="tenderApp.bodovanje.nazivProizvodjaca">Naziv Proizvodjaca</span></dt>
+        <dd>
+          <span>{{ bodovanje.nazivProizvodjaca }}</span>
+        </dd>
+        <dt><span jhiTranslate="tenderApp.bodovanje.nazivPonudjaca">Naziv Ponudjaca</span></dt>
+        <dd>
+          <span>{{ bodovanje.nazivPonudjaca }}</span>
+        </dd>
+        <dt><span jhiTranslate="tenderApp.bodovanje.zasticeniNaziv">Zasticeni Naziv</span></dt>
+        <dd>
+          <span>{{ bodovanje.zasticeniNaziv }}</span>
+        </dd>
+        <dt><span jhiTranslate="tenderApp.bodovanje.trazenaKolicina">Trazena Kolicina</span></dt>
+        <dd>
+          <span>{{ bodovanje.trazenaKolicina }}</span>
+        </dd>
+        <dt><span jhiTranslate="tenderApp.bodovanje.procijenjenaVrijednost">Procijenjena Vrijednost</span></dt>
+        <dd>
+          <span>{{ bodovanje.procijenjenaVrijednost }}</span>
+        </dd>
+        <dt><span jhiTranslate="tenderApp.bodovanje.ponudjenaVrijednost">Ponudjena Vrijednost</span></dt>
+        <dd>
+          <span>{{ bodovanje.ponudjenaVrijednost }}</span>
+        </dd>
+        <dt><span jhiTranslate="tenderApp.bodovanje.rokIsporuke">Rok Isporuke</span></dt>
+        <dd>
+          <span>{{ bodovanje.rokIsporuke }}</span>
+        </dd>
+        <dt><span jhiTranslate="tenderApp.bodovanje.bodCijena">Bod Cijena</span></dt>
+        <dd>
+          <span>{{ bodovanje.bodCijena }}</span>
+        </dd>
+        <dt><span jhiTranslate="tenderApp.bodovanje.bodRok">Bod Rok</span></dt>
+        <dd>
+          <span>{{ bodovanje.bodRok }}</span>
+        </dd>
+        <dt><span jhiTranslate="tenderApp.bodovanje.bodUkupno">Bod Ukupno</span></dt>
+        <dd>
+          <span>{{ bodovanje.bodUkupno }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+    </div>
+  </div>
+</div>

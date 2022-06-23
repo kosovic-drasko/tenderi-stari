@@ -1,6 +1,6 @@
 {
   "applications": "*",
-  "changelogDate": "20220331185358",
+  "changelogDate": "20220623093303",
   "dto": "no",
   "embedded": false,
   "entityTableName": "view_vrednovanje",
@@ -63,10 +63,10 @@
     }
   ],
   "fluentMethods": true,
-  "jpaMetamodelFiltering": true,
-  "name": "ViewVrednovanje",
-  "pagination": "pagination",
+  "jpaMetamodelFiltering": false,
+  "name": "Bodovanje",
+  "pagination": "no",
   "readOnly": true,
   "relationships": [],
-  "service": "serviceClass"
+  "service": "no"
 }

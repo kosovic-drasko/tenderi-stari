@@ -1,0 +1,79 @@
+<div>
+  <h2 id="page-heading" data-cy="BodovanjeHeading">
+    <span jhiTranslate="tenderApp.bodovanje.home.title">Bodovanjes</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="tenderApp.bodovanje.home.refreshListLabel">Refresh List</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="bodovanjes?.length === 0">
+    <span jhiTranslate="tenderApp.bodovanje.home.notFound">No bodovanjes found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="bodovanjes && bodovanjes.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="tenderApp.bodovanje.sifraPostupka">Sifra Postupka</span></th>
+          <th scope="col"><span jhiTranslate="tenderApp.bodovanje.sifraPonude">Sifra Ponude</span></th>
+          <th scope="col"><span jhiTranslate="tenderApp.bodovanje.brojPartije">Broj Partije</span></th>
+          <th scope="col"><span jhiTranslate="tenderApp.bodovanje.atc">Atc</span></th>
+          <th scope="col"><span jhiTranslate="tenderApp.bodovanje.nazivProizvodjaca">Naziv Proizvodjaca</span></th>
+          <th scope="col"><span jhiTranslate="tenderApp.bodovanje.nazivPonudjaca">Naziv Ponudjaca</span></th>
+          <th scope="col"><span jhiTranslate="tenderApp.bodovanje.zasticeniNaziv">Zasticeni Naziv</span></th>
+          <th scope="col"><span jhiTranslate="tenderApp.bodovanje.trazenaKolicina">Trazena Kolicina</span></th>
+          <th scope="col"><span jhiTranslate="tenderApp.bodovanje.procijenjenaVrijednost">Procijenjena Vrijednost</span></th>
+          <th scope="col"><span jhiTranslate="tenderApp.bodovanje.ponudjenaVrijednost">Ponudjena Vrijednost</span></th>
+          <th scope="col"><span jhiTranslate="tenderApp.bodovanje.rokIsporuke">Rok Isporuke</span></th>
+          <th scope="col"><span jhiTranslate="tenderApp.bodovanje.bodCijena">Bod Cijena</span></th>
+          <th scope="col"><span jhiTranslate="tenderApp.bodovanje.bodRok">Bod Rok</span></th>
+          <th scope="col"><span jhiTranslate="tenderApp.bodovanje.bodUkupno">Bod Ukupno</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let bodovanje of bodovanjes; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/bodovanje', bodovanje.id, 'view']">{{ bodovanje.id }}</a>
+          </td>
+          <td>{{ bodovanje.sifraPostupka }}</td>
+          <td>{{ bodovanje.sifraPonude }}</td>
+          <td>{{ bodovanje.brojPartije }}</td>
+          <td>{{ bodovanje.atc }}</td>
+          <td>{{ bodovanje.nazivProizvodjaca }}</td>
+          <td>{{ bodovanje.nazivPonudjaca }}</td>
+          <td>{{ bodovanje.zasticeniNaziv }}</td>
+          <td>{{ bodovanje.trazenaKolicina }}</td>
+          <td>{{ bodovanje.procijenjenaVrijednost }}</td>
+          <td>{{ bodovanje.ponudjenaVrijednost }}</td>
+          <td>{{ bodovanje.rokIsporuke }}</td>
+          <td>{{ bodovanje.bodCijena }}</td>
+          <td>{{ bodovanje.bodRok }}</td>
+          <td>{{ bodovanje.bodUkupno }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/bodovanje', bodovanje.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
