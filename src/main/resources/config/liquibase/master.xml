@@ -17,6 +17,7 @@
     <include file="config/liquibase/changelog/20220527190551_added_entity_Postupci.xml" relativeToChangelogFile="false" />
     <include file="config/liquibase/changelog/20220527190552_added_entity_Specifikacije.xml" relativeToChangelogFile="false" />
     <include file="config/liquibase/changelog/20220527190553_added_entity_TenderiHome.xml" relativeToChangelogFile="false" />
+    <include file="config/liquibase/changelog/20220623180818_added_entity_Vrednovanje.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="config/liquibase/changelog/20220527190549_added_entity_constraints_Ponude.xml" relativeToChangelogFile="false" />
 
