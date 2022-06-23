@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet author="Drasko" id="view-vrednovanje">
+        <createView catalogName="tender" schemaName="public" viewName="view_vrednovanje">
+SELECT 
+  public.ponude.sifra_postupka,
+  public.ponude.sifra_ponude,
+  public.ponude.broj_partije,
+  public.ponude.naziv_proizvodjaca,
+  public.ponude.zasticeni_naziv,
+  public.ponude.ponudjena_vrijednost,
+  public.ponude.rok_isporuke,
+  public.ponude.ponudjaci_id,
+  public.specifikacije.atc,
+  public.specifikacije.trazena_kolicina,
+  public.specifikacije.procijenjena_vrijednost,
+  public.postupci.vrsta_postupka,
+   (((90) ::double precision * min(ponude.ponudjena_vrijednost) over(partition BY ponude.broj_partije, ponude.sifra_postupka)) / ponude.ponudjena_vrijednost) AS bod_cijena,
+  ((10 * min(ponude.rok_isporuke) over(partition BY ponude.broj_partije, ponude.sifra_postupka)) / ponude.rok_isporuke) AS bod_rok,
+  ((((90) ::double precision * min(ponude.ponudjena_vrijednost) over(partition BY ponude.broj_partije, ponude.sifra_postupka)) / ponude.ponudjena_vrijednost) + (((10 * min(ponude.rok_isporuke) over(partition BY ponude.broj_partije, ponude.sifra_postupka)) / ponude.rok_isporuke)) ::double precision) AS bod_ukupno
+FROM
+  public.ponude
+  INNER JOIN public.specifikacije ON (public.ponude.sifra_postupka = public.specifikacije.sifra_postupka)
+  INNER JOIN public.postupci ON (public.ponude.sifra_postupka = public.postupci.sifra_postupka)
+
+        </createView>
+    </changeSet>
+
+</databaseChangeLog>
