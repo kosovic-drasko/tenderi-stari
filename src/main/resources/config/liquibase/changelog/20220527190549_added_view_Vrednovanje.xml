@@ -2,30 +2,37 @@
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
                         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
-    <changeSet author="Drasko" id="view-vrednovanje">
-        <createView catalogName="tender" schemaName="public" viewName="view_vrednovanje">
-SELECT 
-  public.ponude.sifra_postupka,
-  public.ponude.sifra_ponude,
-  public.ponude.broj_partije,
-  public.ponude.naziv_proizvodjaca,
-  public.ponude.zasticeni_naziv,
-  public.ponude.ponudjena_vrijednost,
-  public.ponude.rok_isporuke,
-  public.ponude.ponudjaci_id,
-  public.specifikacije.atc,
-  public.specifikacije.trazena_kolicina,
-  public.specifikacije.procijenjena_vrijednost,
-  public.postupci.vrsta_postupka,
-   (((90) ::double precision * min(ponude.ponudjena_vrijednost) over(partition BY ponude.broj_partije, ponude.sifra_postupka)) / ponude.ponudjena_vrijednost) AS bod_cijena,
-  ((10 * min(ponude.rok_isporuke) over(partition BY ponude.broj_partije, ponude.sifra_postupka)) / ponude.rok_isporuke) AS bod_rok,
-  ((((90) ::double precision * min(ponude.ponudjena_vrijednost) over(partition BY ponude.broj_partije, ponude.sifra_postupka)) / ponude.ponudjena_vrijednost) + (((10 * min(ponude.rok_isporuke) over(partition BY ponude.broj_partije, ponude.sifra_postupka)) / ponude.rok_isporuke)) ::double precision) AS bod_ukupno
-FROM
-  public.ponude
-  INNER JOIN public.specifikacije ON (public.ponude.sifra_postupka = public.specifikacije.sifra_postupka)
-  INNER JOIN public.postupci ON (public.ponude.sifra_postupka = public.postupci.sifra_postupka)
+  <changeSet author="Drasko" id="view-vrednovanje">
+    <createView catalogName="tender" schemaName="public" viewName="view_vrednovanje">
+SELECT ponude.sifra_postupka,
+    ponude.sifra_ponude,
+    ponude.broj_partije,
+    ponude.naziv_proizvodjaca,
+    ponude.zasticeni_naziv,
+    ponude.ponudjena_vrijednost,
+    ponude.rok_isporuke,
+    ponude.ponudjaci_id,
+    specifikacije.atc,
+    specifikacije.trazena_kolicina,
+    specifikacije.procijenjena_vrijednost,
+    postupci.vrsta_postupka,
+    (((postupci.kriterijum_cijena)::double precision *
+    min(ponude.ponudjena_vrijednost) OVER (PARTITION BY ponude.broj_partije,
+    ponude.sifra_postupka)) / ponude.ponudjena_vrijednost) AS bod_cijena,
+    ((postupci.drugi_kriterijum * min(ponude.rok_isporuke) OVER (PARTITION BY ponude.broj_partije,
+    ponude.sifra_postupka)) / ponude.rok_isporuke) AS bod_rok,
+    ((((postupci.kriterijum_cijena)::double precision * min(ponude.ponudjena_vrijednost) OVER
+    (PARTITION BY ponude.broj_partije, ponude.sifra_postupka)) /
+    ponude.ponudjena_vrijednost) + (((postupci.drugi_kriterijum * min(ponude.rok_isporuke) OVER
+    (PARTITION BY ponude.broj_partije, ponude.sifra_postupka)) /
+    ponude.rok_isporuke))::double precision) AS bod_ukupno
+FROM ((ponude
+     JOIN specifikacije ON ((ponude.sifra_postupka =
+    specifikacije.sifra_postupka)))
+     JOIN postupci ON
+    ((ponude.sifra_postupka = postupci.sifra_postupka)));
 
         </createView>
-    </changeSet>
+  </changeSet>
 
 </databaseChangeLog>
