@@ -8,3 +8,4 @@ npm install -E @angular/material@11.2.6 @angular/flex-layout@11.0.0-beta.33 hamm
 font jasper pdf DejaVu Sans
 npm i mat-table-exporter
 java.time.LocalDate
+providers: [DecimalPipe],
