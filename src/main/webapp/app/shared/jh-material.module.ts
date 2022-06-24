@@ -24,11 +24,14 @@ import { MatMenuModule } from '@angular/material/menu';
 import { NgModule } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableExporterModule } from 'mat-table-exporter';
 
 @NgModule({
   imports: [
+    MatTableExporterModule,
     MatTableModule,
-
+    MatPaginatorModule,
     MatFormFieldModule,
     MatButtonModule,
     MatCheckboxModule,
@@ -56,6 +59,8 @@ import { MatTableModule } from '@angular/material/table';
     MatToolbarModule,
   ],
   exports: [
+    MatTableExporterModule,
+    MatPaginatorModule,
     MatTableModule,
     MatButtonModule,
     MatCheckboxModule,

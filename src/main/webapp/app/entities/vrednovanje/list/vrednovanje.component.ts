@@ -7,6 +7,7 @@ import { DecimalPipe } from '@angular/common';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { PonudeService } from 'app/entities/ponude/service/ponude.service';
+import { MatTableExporterModule } from 'mat-table-exporter';
 
 @Component({
   selector: 'jhi-vrednovanje',
@@ -14,8 +15,7 @@ import { PonudeService } from 'app/entities/ponude/service/ponude.service';
   styleUrls: ['./vrednovanje.scss'],
 })
 export class VrednovanjeComponent implements AfterViewInit, OnChanges {
-  viewVrednovanjes?: HttpResponse<IVrednovanje[]>;
-  // ponude_ponudjaci?: IPonudePonudjaci[];
+  vrednovanjes?: HttpResponse<IVrednovanje[]>;
   ukupnaPonudjena?: number | null | undefined;
   ukupnaProcijenjena?: number | null | undefined;
   nadjiPonudjaca?: any;
@@ -61,7 +61,7 @@ export class VrednovanjeComponent implements AfterViewInit, OnChanges {
         next: (res: HttpResponse<IVrednovanje[]>) => {
           this.isLoading = false;
           this.dataSource.data = res.body ?? [];
-          this.viewVrednovanjes = res;
+          this.vrednovanjes = res;
           this.getTotalPonudjana();
           this.getTotalProcjenjena();
         },

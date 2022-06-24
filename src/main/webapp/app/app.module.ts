@@ -26,6 +26,7 @@ import { PageRibbonComponent } from './layouts/profiles/page-ribbon.component';
 import { ErrorComponent } from './layouts/error/error.component';
 import { JhMaterialModule } from './shared/jh-material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTableExporterModule } from 'mat-table-exporter';
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -33,7 +34,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SharedModule,
     HomeModule,
     JhMaterialModule,
-
+    MatTableExporterModule,
     // jhipster-needle-angular-add-module JHipster will add new module here
     AppRoutingModule,
     // Set this to true to enable service worker (PWA)
