@@ -1,4 +1,4 @@
-entity Bodovanje {
+entity Vrednovanje {
   sifraPostupka Integer
   sifraPonude Integer
   brojPartije Integer
@@ -15,4 +15,4 @@ entity Bodovanje {
   bodUkupno Double
 }
 
-readOnly Bodovanje
+readOnly Vrednovanje

@@ -17,6 +17,45 @@
             <column name="sifra_postupka" type="integer">
                 <constraints nullable="true" />
             </column>
+            <column name="sifra_ponude" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="broj_partije" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="atc" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="naziv_proizvodjaca" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="naziv_ponudjaca" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="zasticeni_naziv" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="trazena_kolicina" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="procijenjena_vrijednost" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="ponudjena_vrijednost" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="rok_isporuke" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="bod_cijena" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="bod_rok" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="bod_ukupno" type="double">
+                <constraints nullable="true" />
+            </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
         </createTable>
     </changeSet>
@@ -39,6 +78,19 @@
                   usePreparedStatements="true">
             <column name="id" type="numeric"/>
             <column name="sifra_postupka" type="numeric"/>
+            <column name="sifra_ponude" type="numeric"/>
+            <column name="broj_partije" type="numeric"/>
+            <column name="atc" type="string"/>
+            <column name="naziv_proizvodjaca" type="string"/>
+            <column name="naziv_ponudjaca" type="string"/>
+            <column name="zasticeni_naziv" type="string"/>
+            <column name="trazena_kolicina" type="numeric"/>
+            <column name="procijenjena_vrijednost" type="numeric"/>
+            <column name="ponudjena_vrijednost" type="numeric"/>
+            <column name="rok_isporuke" type="numeric"/>
+            <column name="bod_cijena" type="numeric"/>
+            <column name="bod_rok" type="numeric"/>
+            <column name="bod_ukupno" type="numeric"/>
             <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
         </loadData>
     </changeSet>

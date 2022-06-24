@@ -1,7 +1,9 @@
 {
+  "applications": "*",
   "changelogDate": "20220623180818",
-  
- "entityTableName": "view_vrednovanje",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "vrednovanje",
   "fields": [
     {
       "fieldName": "sifraPostupka",
@@ -62,7 +64,7 @@
   ],
   "fluentMethods": true,
   "jpaMetamodelFiltering": false,
-  "name": "Bodovanje",
+  "name": "Vrednovanje",
   "pagination": "no",
   "readOnly": true,
   "relationships": [],

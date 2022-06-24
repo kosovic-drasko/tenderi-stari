@@ -22,6 +22,19 @@ describe('Vrednovanje Service', () => {
     elemDefault = {
       id: 0,
       sifraPostupka: 0,
+      sifraPonude: 0,
+      brojPartije: 0,
+      atc: 'AAAAAAA',
+      nazivProizvodjaca: 'AAAAAAA',
+      nazivPonudjaca: 'AAAAAAA',
+      zasticeniNaziv: 'AAAAAAA',
+      trazenaKolicina: 0,
+      procijenjenaVrijednost: 0,
+      ponudjenaVrijednost: 0,
+      rokIsporuke: 0,
+      bodCijena: 0,
+      bodRok: 0,
+      bodUkupno: 0,
     };
   });
 
@@ -41,6 +54,19 @@ describe('Vrednovanje Service', () => {
         {
           id: 1,
           sifraPostupka: 1,
+          sifraPonude: 1,
+          brojPartije: 1,
+          atc: 'BBBBBB',
+          nazivProizvodjaca: 'BBBBBB',
+          nazivPonudjaca: 'BBBBBB',
+          zasticeniNaziv: 'BBBBBB',
+          trazenaKolicina: 1,
+          procijenjenaVrijednost: 1,
+          ponudjenaVrijednost: 1,
+          rokIsporuke: 1,
+          bodCijena: 1,
+          bodRok: 1,
+          bodUkupno: 1,
         },
         elemDefault
       );
