@@ -1,0 +1,18 @@
+entity Bodovanje {
+  sifraPostupka Integer
+  sifraPonude Integer
+  brojPartije Integer
+  atc String
+  nazivProizvodjaca String
+  nazivPonudjaca String
+  zasticeniNaziv String
+  trazenaKolicina Integer
+  procijenjenaVrijednost Double
+  ponudjenaVrijednost Double
+  rokIsporuke Integer
+  bodCijena Double
+  bodRok Double
+  bodUkupno Double
+}
+
+readOnly Bodovanje

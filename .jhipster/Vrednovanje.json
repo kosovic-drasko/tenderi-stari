@@ -1,0 +1,14 @@
+{
+  "changelogDate": "20220623180818",
+  "fields": [
+    {
+      "fieldName": "sifraPostupka",
+      "fieldType": "Integer"
+    }
+  ],
+  "name": "Vrednovanje",
+  "pagination": "no",
+  "readOnly": true,
+  "relationships": [],
+  "service": "no"
+}
