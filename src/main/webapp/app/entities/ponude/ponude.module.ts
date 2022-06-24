@@ -11,15 +11,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { JhMaterialModule } from 'app/shared/jh-material.module';
 
 @NgModule({
-  imports: [
-    SharedModule,
-    PonudeRoutingModule,
-    MatTableExporterModule,
-    MatPaginatorModule,
-    JhMaterialModule,
-    MatTableExporterModule,
-    MatSortModule,
-  ],
+  imports: [SharedModule, PonudeRoutingModule, MatPaginatorModule, JhMaterialModule, MatTableExporterModule, MatSortModule],
   declarations: [PonudeComponent, PonudeDetailComponent, PonudeUpdateComponent, PonudeDeleteDialogComponent],
   entryComponents: [PonudeDeleteDialogComponent],
   exports: [PonudeComponent],

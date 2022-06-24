@@ -1,38 +1,90 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Input, OnChanges, ViewChild } from '@angular/core';
 import { HttpResponse } from '@angular/common/http';
-
+import { MatPaginator } from '@angular/material/paginator';
 import { IVrednovanje } from '../vrednovanje.model';
 import { VrednovanjeService } from '../service/vrednovanje.service';
+import { DecimalPipe } from '@angular/common';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+import { PonudeService } from 'app/entities/ponude/service/ponude.service';
 
 @Component({
   selector: 'jhi-vrednovanje',
   templateUrl: './vrednovanje.component.html',
+  styleUrls: ['./vrednovanje.scss'],
 })
-export class VrednovanjeComponent implements OnInit {
-  vrednovanjes?: IVrednovanje[];
+export class VrednovanjeComponent implements AfterViewInit, OnChanges {
+  viewVrednovanjes?: HttpResponse<IVrednovanje[]>;
+  // ponude_ponudjaci?: IPonudePonudjaci[];
+  ukupnaPonudjena?: number | null | undefined;
+  ukupnaProcijenjena?: number | null | undefined;
+  nadjiPonudjaca?: any;
   isLoading = false;
+  public displayedColumns = [
+    'sifra postupka',
+    'sifra ponude',
+    'broj partije',
+    'atc',
+    'zasticeni naziv',
+    'procijenjena vrijednost',
+    'kolicina',
+    'ponudjena vrijednost',
+    'rok isporuke',
+    'naziv ponudjaca',
+    'naziv proizvodjaca',
+    'bod cijena',
+    'bod rok',
+    'bod ukupno',
+  ];
+  public dataSource = new MatTableDataSource<IVrednovanje>();
+  sifraPostupka?: any;
+  @ViewChild(MatSort) sort!: MatSort;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @Input() postupak: any;
 
-  constructor(protected vrednovanjeService: VrednovanjeService) {}
+  constructor(
+    protected vrednovanjeService: VrednovanjeService,
+    protected ponudeService: PonudeService,
+    private _decimalPipe: DecimalPipe
+  ) {}
 
-  loadAll(): void {
+  transformDecimal(num: string | number): any {
+    return this._decimalPipe.transform(num, '1.2-2');
+  }
+  getSifraPostupka(): void {
     this.isLoading = true;
-
-    this.vrednovanjeService.query().subscribe({
-      next: (res: HttpResponse<IVrednovanje[]>) => {
-        this.isLoading = false;
-        this.vrednovanjes = res.body ?? [];
-      },
-      error: () => {
-        this.isLoading = false;
-      },
-    });
+    this.vrednovanjeService
+      .query({
+        'sifraPostupka.in': this.postupak,
+      })
+      .subscribe({
+        next: (res: HttpResponse<IVrednovanje[]>) => {
+          this.isLoading = false;
+          this.dataSource.data = res.body ?? [];
+          this.viewVrednovanjes = res;
+          this.getTotalPonudjana();
+          this.getTotalProcjenjena();
+        },
+        error: () => {
+          this.isLoading = false;
+        },
+      });
+  }
+  getTotalPonudjana(): any {
+    return (this.ukupnaPonudjena = this.dataSource.filteredData.map(t => t.ponudjenaVrijednost).reduce((acc, value) => acc! + value!, 0));
+  }
+  getTotalProcjenjena(): any {
+    return (this.ukupnaProcijenjena = this.dataSource.filteredData
+      .map(t => t.procijenjenaVrijednost)
+      .reduce((acc, value) => acc! + value!, 0));
   }
 
-  ngOnInit(): void {
-    this.loadAll();
+  ngAfterViewInit(): void {
+    this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
   }
 
-  trackId(_index: number, item: IVrednovanje): number {
-    return item.id!;
+  ngOnChanges(): void {
+    this.getSifraPostupka();
   }
 }
