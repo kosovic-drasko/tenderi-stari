@@ -1,7 +1,6 @@
-import { AfterViewInit, Component, Input, OnChanges, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
 import { HttpResponse } from '@angular/common/http';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-
 import { IPonude } from '../ponude.model';
 import { PonudeService } from '../service/ponude.service';
 import { PonudeDeleteDialogComponent } from '../delete/ponude-delete-dialog.component';
@@ -20,7 +19,7 @@ import { PonudeUpdateComponent } from '../update/ponude-update.component';
   templateUrl: './ponude.component.html',
   styleUrls: ['./ponude.component.scss'],
 })
-export class PonudeComponent implements AfterViewInit, OnChanges, OnInit {
+export class PonudeComponent implements AfterViewInit, OnInit {
   ponude?: HttpResponse<IPonude[]>;
   postupci?: IPostupci[];
   account: Account | null = null;

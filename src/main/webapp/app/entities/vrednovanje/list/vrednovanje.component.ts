@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input, OnChanges, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
 import { HttpResponse } from '@angular/common/http';
 import { MatPaginator } from '@angular/material/paginator';
 import { IVrednovanje } from '../vrednovanje.model';
@@ -7,14 +7,13 @@ import { DecimalPipe } from '@angular/common';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { PonudeService } from 'app/entities/ponude/service/ponude.service';
-import { MatTableExporterModule } from 'mat-table-exporter';
 
 @Component({
   selector: 'jhi-vrednovanje',
   templateUrl: './vrednovanje.component.html',
   styleUrls: ['./vrednovanje.scss'],
 })
-export class VrednovanjeComponent implements AfterViewInit, OnChanges {
+export class VrednovanjeComponent implements AfterViewInit, OnInit {
   vrednovanjes?: HttpResponse<IVrednovanje[]>;
   ukupnaPonudjena?: number | null | undefined;
   ukupnaProcijenjena?: number | null | undefined;
@@ -47,6 +46,9 @@ export class VrednovanjeComponent implements AfterViewInit, OnChanges {
     protected ponudeService: PonudeService,
     private _decimalPipe: DecimalPipe
   ) {}
+  ngOnInit(): void {
+    this.getSifraPostupka();
+  }
 
   transformDecimal(num: string | number): any {
     return this._decimalPipe.transform(num, '1.2-2');
@@ -82,9 +84,5 @@ export class VrednovanjeComponent implements AfterViewInit, OnChanges {
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
-  }
-
-  ngOnChanges(): void {
-    this.getSifraPostupka();
   }
 }
