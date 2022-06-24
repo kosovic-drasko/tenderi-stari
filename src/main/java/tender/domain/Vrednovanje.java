@@ -9,7 +9,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
  * A Vrednovanje.
  */
 @Entity
-@Table(name = "vrednovanje")
+@Table(name = "view_vrednovanje")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Vrednovanje implements Serializable {
 

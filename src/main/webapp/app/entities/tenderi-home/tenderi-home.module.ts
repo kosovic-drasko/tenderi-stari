@@ -11,10 +11,10 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { HideMeDirective } from './hide-me.directive';
 import { PonudeModule } from '../ponude/ponude.module';
 import { SpecifikacijeModule } from '../specifikacije/specifikacije.module';
-import { BodovanjeModule } from '../bodovanje/bodovanje.module';
+import { VrednovanjeComponent } from '../vrednovanje/list/vrednovanje.component';
 
 @NgModule({
-  imports: [SharedModule, TenderiHomeRoutingModule, MatTabsModule, JhMaterialModule, SpecifikacijeModule, PonudeModule, BodovanjeModule],
-  declarations: [TenderiHomeComponent, HideMeDirective],
+  imports: [SharedModule, TenderiHomeRoutingModule, MatTabsModule, JhMaterialModule, SpecifikacijeModule, PonudeModule],
+  declarations: [TenderiHomeComponent, HideMeDirective, VrednovanjeComponent],
 })
 export class TenderiHomeModule {}
