@@ -26,10 +26,11 @@
       "fieldType": "String"
     },
     {
-      "fieldName": "nazivPonudjaca",
+      "fieldName": "sifraPonudjaca",
       "fieldType": "String"
     },
     {
+      
       "fieldName": "zasticeniNaziv",
       "fieldType": "String"
     },
