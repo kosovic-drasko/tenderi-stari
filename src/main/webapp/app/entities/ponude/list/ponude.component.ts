@@ -218,12 +218,6 @@ export class PonudeComponent implements AfterViewInit, OnInit {
     });
   }
 
-  // ngOnInit(): void {
-  //   this.getSifraPostupka();
-  // }
-  ngOnChanges(): void {
-    this.getSifraPostupka();
-  }
   deleteSifra(): void {
     this.ponudeService.deleteSifraPonude(this.sifraPonude).subscribe();
     this.loadAll();
