@@ -12,9 +12,11 @@ import { HideMeDirective } from './hide-me.directive';
 import { PonudeModule } from '../ponude/ponude.module';
 import { SpecifikacijeModule } from '../specifikacije/specifikacije.module';
 import { VrednovanjeComponent } from '../vrednovanje/list/vrednovanje.component';
+import { DecimalPipe } from '@angular/common';
 
 @NgModule({
   imports: [SharedModule, TenderiHomeRoutingModule, MatTabsModule, JhMaterialModule, SpecifikacijeModule, PonudeModule],
   declarations: [TenderiHomeComponent, HideMeDirective, VrednovanjeComponent],
+  providers: [DecimalPipe],
 })
 export class TenderiHomeModule {}
