@@ -125,7 +125,8 @@
             id="izabrano"
             type="submit"
             (click)="open(content)"
-          ></mat-icon>
+            >delete</mat-icon
+          >
         </th>
         <td mat-cell *matCellDef="let element; let i = index">
           <section class="example-section">
@@ -138,7 +139,7 @@
       <ng-container matColumnDef="delete" stickyEnd>
         <th mat-header-cell *matHeaderCellDef></th>
         <td mat-cell *matCellDef="let row; let i = index">
-          <mat-icon *jhiHasAnyAuthority="'ROLE_ADMIN'" type="submit" (click)="deleteItem(i, row.id)"></mat-icon>
+          <mat-icon *jhiHasAnyAuthority="'ROLE_ADMIN'" type="submit" (click)="deleteItem(i, row.id)">delete</mat-icon>
         </td>
 
         <td mat-footer-cell *matFooterCellDef></td>
@@ -163,7 +164,8 @@
                 element.jedinicnaCijena
               )
             "
-          ></mat-icon>
+            >edit</mat-icon
+          >
         </td>
         <td mat-footer-cell *matFooterCellDef></td>
       </ng-container>
