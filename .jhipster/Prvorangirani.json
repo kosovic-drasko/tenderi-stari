@@ -1,9 +1,9 @@
 {
   "applications": "*",
-  "changelogDate": "20220623180818",
+  "changelogDate": "20220331185356",
   "dto": "no",
   "embedded": false,
-  "entityTableName": "vrednovanje",
+  "entityTableName": "prvorangirani",
   "fields": [
     {
       "fieldName": "sifraPostupka",
@@ -22,15 +22,6 @@
       "fieldType": "String"
     },
     {
-      "fieldName": "nazivProizvodjaca",
-      "fieldType": "String"
-    },
-    {
-      "fieldName": "sifraPonudjaca",
-      "fieldType": "String"
-    },
-    {
-      
       "fieldName": "zasticeniNaziv",
       "fieldType": "String"
     },
@@ -51,6 +42,10 @@
       "fieldType": "Integer"
     },
     {
+      "fieldName": "nazivPonudjaca",
+      "fieldType": "String"
+    },
+    {
       "fieldName": "bodCijena",
       "fieldType": "Double"
     },
@@ -63,11 +58,10 @@
       "fieldType": "Double"
     }
   ],
-  "fluentMethods": true,
-  "jpaMetamodelFiltering": false,
-  "name": "Vrednovanje",
+  "jpaMetamodelFiltering": true,
+  "name": "Prvorangirani",
   "pagination": "no",
-  "readOnly": true,
+  "readOnly": false,
   "relationships": [],
-  "service": "no"
+  "service": "serviceClass"
 }
