@@ -1,0 +1,16 @@
+entity Prvorangirani {
+  sifraPostupka Integer
+  sifraPonude Integer
+  brojPartije Integer
+  atc String
+  zasticeniNaziv String
+  trazenaKolicina Integer
+  procijenjenaVrijednost Double
+  ponudjenaVrijednost Double
+  rokIsporuke Integer
+  nazivPonudjaca String
+  bodCijena Double
+  bodRok Double
+  bodUkupno Double
+}
+readOnly Prvorangirani
