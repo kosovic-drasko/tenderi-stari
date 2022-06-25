@@ -47,8 +47,8 @@ public class Prvorangirani implements Serializable {
     @Column(name = "rok_isporuke")
     private Integer rokIsporuke;
 
-    @Column(name = "naziv_ponudjaca")
-    private String nazivPonudjaca;
+    @Column(name = "sifra_ponudjaca")
+    private String sifraPonudjaca;
 
     @Column(name = "bod_cijena")
     private Double bodCijena;
@@ -63,6 +63,14 @@ public class Prvorangirani implements Serializable {
 
     public Long getId() {
         return this.id;
+    }
+
+    public String getSifraPonudjaca() {
+        return sifraPonudjaca;
+    }
+
+    public void setSifraPonudjaca(String sifraPonudjaca) {
+        this.sifraPonudjaca = sifraPonudjaca;
     }
 
     public Prvorangirani id(Long id) {
@@ -191,19 +199,6 @@ public class Prvorangirani implements Serializable {
         this.rokIsporuke = rokIsporuke;
     }
 
-    public String getNazivPonudjaca() {
-        return this.nazivPonudjaca;
-    }
-
-    public Prvorangirani nazivPonudjaca(String nazivPonudjaca) {
-        this.setNazivPonudjaca(nazivPonudjaca);
-        return this;
-    }
-
-    public void setNazivPonudjaca(String nazivPonudjaca) {
-        this.nazivPonudjaca = nazivPonudjaca;
-    }
-
     public Double getBodCijena() {
         return this.bodCijena;
     }
@@ -278,7 +273,7 @@ public class Prvorangirani implements Serializable {
             ", procijenjenaVrijednost=" + getProcijenjenaVrijednost() +
             ", ponudjenaVrijednost=" + getPonudjenaVrijednost() +
             ", rokIsporuke=" + getRokIsporuke() +
-            ", nazivPonudjaca='" + getNazivPonudjaca() + "'" +
+            ", sifraPonudjaca='" + getSifraPonudjaca() + "'" +
             ", bodCijena=" + getBodCijena() +
             ", bodRok=" + getBodRok() +
             ", bodUkupno=" + getBodUkupno() +
