@@ -9,4 +9,4 @@ import tender.domain.Vrednovanje;
  */
 @SuppressWarnings("unused")
 @Repository
-public interface VrednovanjeRepository extends JpaRepository<Vrednovanje, Long> {}
+public interface VrednovanjeRepository extends JpaRepository<Vrednovanje, Long>, JpaSpecificationExecutor<Vrednovanje> {}
