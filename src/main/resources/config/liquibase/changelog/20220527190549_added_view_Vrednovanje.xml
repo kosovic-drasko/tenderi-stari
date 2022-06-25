@@ -4,14 +4,7 @@
 
   <changeSet author="Drasko" id="view-vrednovanje">
     <createView catalogName="tender" schemaName="public" viewName="view_vrednovanje">
-SELECT ponude.sifra_postupka,
-    ponude.sifra_ponude,
-    ponude.broj_partije,
-    ponude.naziv_proizvodjaca,
-    ponude.zasticeni_naziv,
-    ponude.ponudjena_vrijednost,
-    ponude.rok_isporuke,
-    ponude.ponudjaci_id,
+SELECT ponude.*,
     specifikacije.atc,
     specifikacije.trazena_kolicina,
     specifikacije.procijenjena_vrijednost,

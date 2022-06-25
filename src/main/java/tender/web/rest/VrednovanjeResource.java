@@ -11,11 +11,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
-import tech.jhipster.web.util.HeaderUtil;
 import tech.jhipster.web.util.ResponseUtil;
 import tender.domain.Vrednovanje;
 import tender.repository.VrednovanjeRepository;
-import tender.web.rest.errors.BadRequestAlertException;
 
 /**
  * REST controller for managing {@link tender.domain.Vrednovanje}.
@@ -39,7 +37,7 @@ public class VrednovanjeResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of vrednovanjes in body.
      */
     @GetMapping("/vrednovanjes")
-    public List<Vrednovanje> getAllVrednovanjes() {
+    public List<?> getAllVrednovanjes() {
         log.debug("REST request to get all Vrednovanjes");
         return vrednovanjeRepository.findAll();
     }
