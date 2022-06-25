@@ -14,10 +14,11 @@ import { SpecifikacijeModule } from '../specifikacije/specifikacije.module';
 import { VrednovanjeComponent } from '../vrednovanje/list/vrednovanje.component';
 import { DecimalPipe } from '@angular/common';
 import { PrvorangiraniComponent } from '../prvorangirani/list/prvorangirani.component';
+import { HvalePonudeComponent } from '../hvale-ponude/list/hvale-ponude.component';
 
 @NgModule({
   imports: [SharedModule, TenderiHomeRoutingModule, MatTabsModule, JhMaterialModule, SpecifikacijeModule, PonudeModule],
-  declarations: [TenderiHomeComponent, HideMeDirective, VrednovanjeComponent, PrvorangiraniComponent],
+  declarations: [TenderiHomeComponent, HideMeDirective, VrednovanjeComponent, PrvorangiraniComponent, HvalePonudeComponent],
   providers: [DecimalPipe],
 })
 export class TenderiHomeModule {}
