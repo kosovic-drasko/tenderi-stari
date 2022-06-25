@@ -15,6 +15,9 @@ import tech.jhipster.web.util.HeaderUtil;
 import tech.jhipster.web.util.ResponseUtil;
 import tender.domain.Prvorangirani;
 import tender.repository.PrvorangiraniRepository;
+import tender.service.PrvorangiraniQueryService;
+import tender.service.PrvorangiraniService;
+import tender.service.criteria.PrvorangiraniCriteria;
 import tender.web.rest.errors.BadRequestAlertException;
 
 /**
@@ -32,16 +35,26 @@ public class PrvorangiraniResource {
     @Value("${jhipster.clientApp.name}")
     private String applicationName;
 
+    private final PrvorangiraniService prvorangiraniService;
+
     private final PrvorangiraniRepository prvorangiraniRepository;
 
-    public PrvorangiraniResource(PrvorangiraniRepository prvorangiraniRepository) {
+    private final PrvorangiraniQueryService prvorangiraniQueryService;
+
+    public PrvorangiraniResource(
+        PrvorangiraniService prvorangiraniService,
+        PrvorangiraniRepository prvorangiraniRepository,
+        PrvorangiraniQueryService prvorangiraniQueryService
+    ) {
+        this.prvorangiraniService = prvorangiraniService;
         this.prvorangiraniRepository = prvorangiraniRepository;
+        this.prvorangiraniQueryService = prvorangiraniQueryService;
     }
 
     @GetMapping("/prvorangiranis")
-    public ResponseEntity<List<Prvorangirani>> getAllPrvorangiranis() {
-        log.debug("REST request to get Prvorangiranis by criteria: {}");
-        List<Prvorangirani> entityList = prvorangiraniRepository.findAll();
+    public ResponseEntity<List<Prvorangirani>> getAllPrvorangiranis(PrvorangiraniCriteria criteria) {
+        log.debug("REST request to get Prvorangiranis by criteria: {}", criteria);
+        List<Prvorangirani> entityList = prvorangiraniQueryService.findByCriteria(criteria);
         return ResponseEntity.ok().body(entityList);
     }
 }
