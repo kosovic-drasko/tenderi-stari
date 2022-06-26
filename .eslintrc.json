@@ -21,7 +21,7 @@
   },
   "rules": {
     "@angular-eslint/component-selector": [
-      "error",
+      "warn",
       {
         "type": "element",
         "prefix": "jhi",
@@ -83,6 +83,7 @@
       }
     ],
     "@typescript-eslint/no-shadow": ["error"],
+    "@typescript-eslint/no-inferrable-types": "warn",
     "@typescript-eslint/no-unnecessary-condition": "error",
     "@typescript-eslint/no-unsafe-argument": "off",
     "@typescript-eslint/no-unsafe-assignment": "off",

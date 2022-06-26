@@ -6,6 +6,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import tender.service.ExcelFileServicesSpecifikacije;
 
@@ -28,5 +29,17 @@ public class DownloadFileRestAPIsSpecifikacije {
             .headers(headers)
             .contentType(MediaType.parseMediaType("application/vnd.ms-excel"))
             .body(new InputStreamResource(fileServices.loadFile()));
+    }
+
+    @GetMapping("/api/specifikacije/file/{sifraPostupka}")
+    public ResponseEntity<InputStreamResource> downloadFile(@PathVariable("sifraPostupka") Integer sifraPostupka) {
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Content-Disposition", "attachment; filename=ponude.xlsx");
+
+        return ResponseEntity
+            .ok()
+            .headers(headers)
+            .contentType(MediaType.parseMediaType("application/vnd.ms-excel"))
+            .body(new InputStreamResource(fileServices.loadObrazacPostupak(sifraPostupka)));
     }
 }

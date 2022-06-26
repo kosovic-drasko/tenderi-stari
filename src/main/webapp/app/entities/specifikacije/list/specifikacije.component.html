@@ -2,7 +2,7 @@
   <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
     <input hidden #fileInput type="file" id="file" />
     <mat-button-toggle *jhiHasAnyAuthority="'ROLE_ADMIN'" (click)="addNew()" matTooltip="Dodaj novu ponudu">Dodaj </mat-button-toggle>
-    <mat-button-toggle *jhiHasAnyAuthority="'ROLE_ADMIN'" matTooltip="Napravi formu za unos Excel" (click)="downloadExcel()"
+    <mat-button-toggle *jhiHasAnyAuthority="'ROLE_ADMIN'" matTooltip="Napravi formu za unos Excel" (click)="obrazacExcel()"
       >Napravi Obrazac
     </mat-button-toggle>
     <mat-button-toggle *jhiHasAnyAuthority="'ROLE_ADMIN'" matTooltip="Nadji Excel fajl" (click)="fileInput.click()"
@@ -11,16 +11,16 @@
     <mat-button-toggle *jhiHasAnyAuthority="'ROLE_ADMIN'" matTooltip="Unesi Excel fajl" (click)="uploadFile()"
       >Dodaj Fajl
     </mat-button-toggle>
-    <mat-button-toggle
+    <!-- <mat-button-toggle
       *jhiHasAnyAuthority="'ROLE_ADMIN'"
       matTooltip=" Excel fajl"
       (click)="exporter.exportTable('xlsx', { fileName: 'Ponude', sheet: 'sheet_name', Props: { Author: 'Talha' } })"
       ><img src="../../../../content/images/icons8-microsoft-excel-48.png" alt=""
-    /></mat-button-toggle>
+    /></mat-button-toggle> -->
   </mat-button-toggle-group>
   <mat-form-field class="container-search">
     <mat-icon matSuffix>search</mat-icon>
-    <input type="search" (keyup)="doFilter(box.value)" #box matInput placeholder="Nađi" />
+    <input type="search" (keyup)="doFilter(box.value)" #box matInput placeholder="" />
   </mat-form-field>
 
   <jhi-alert-error></jhi-alert-error>

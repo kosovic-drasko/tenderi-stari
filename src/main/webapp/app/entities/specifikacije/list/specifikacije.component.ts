@@ -24,8 +24,10 @@ export class SpecifikacijeComponent implements AfterViewInit, OnInit {
   aktivno?: boolean;
   id?: number;
   index?: number;
+  brojObrazac: number = 0;
   isLoading = false;
   sifraPostupka?: null;
+
   public resourceUrlExcelDownload = SERVER_API_URL + 'api/specifikacije/file';
   public displayedColumns = [
     'sifra postupka',
@@ -160,7 +162,8 @@ export class SpecifikacijeComponent implements AfterViewInit, OnInit {
       this.getSifraPostupka();
     });
   }
-  downloadExcel(): void {
-    window.location.href = this.resourceUrlExcelDownload;
+
+  obrazacExcel(): void {
+    window.location.href = `${this.resourceUrlExcelDownload}/${this.brojObrazac}`;
   }
 }

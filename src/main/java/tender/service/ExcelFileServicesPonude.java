@@ -27,7 +27,6 @@ public class ExcelFileServicesPonude {
         }
     }
 
-    //     Load Data to Excel File
     public ByteArrayInputStream loadFile() {
         List<Ponude> ponude = ponudeRepository.findAll();
 

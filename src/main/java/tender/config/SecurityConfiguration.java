@@ -5,7 +5,6 @@ import org.springframework.context.annotation.Import;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -60,7 +59,7 @@ public class SecurityConfiguration {
                 .antMatchers("/content/**")
                 .antMatchers("/swagger-ui/**")
                 .antMatchers("/api/ponude/file")
-                .antMatchers("/api/specifikacije/file")
+                .antMatchers("/api/specifikacije/file/**")
                 .antMatchers("/api/uploadfiles/specifikacije")
                 .antMatchers("/api/set")
                 .antMatchers("/api/upload")

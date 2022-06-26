@@ -28,6 +28,7 @@ export class PonudeComponent implements AfterViewInit, OnInit {
   sifraPostupka?: any;
   sifraPonude?: any;
   brojPartije?: any;
+  brojObrazac?: number = 0;
   isLoading = false;
   aktivno?: boolean;
   id?: number;
@@ -222,6 +223,9 @@ export class PonudeComponent implements AfterViewInit, OnInit {
 
   downloadExcel(): void {
     window.location.href = `${this.resourceUrlExcelDownload}/${this.postupak}`;
+  }
+  obrazacExcel(): void {
+    window.location.href = `${this.resourceUrlExcelDownload}/${this.brojObrazac}`;
   }
   loadAll(): void {
     this.ponudeService.query().subscribe({
