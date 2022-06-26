@@ -22,6 +22,7 @@ import { PonudeUpdateComponent } from '../update/ponude-update.component';
 export class PonudeComponent implements AfterViewInit, OnInit {
   ponude?: HttpResponse<IPonude[]>;
   postupci?: IPostupci[];
+  sifraPonudjaca?: number;
   account: Account | null = null;
   login: any;
   ukupnaPonudjena?: number | null | undefined;
@@ -76,6 +77,25 @@ export class PonudeComponent implements AfterViewInit, OnInit {
     this.ponudeService
       .query({
         'sifraPostupka.in': this.postupak,
+      })
+      .subscribe({
+        next: (res: HttpResponse<IPonude[]>) => {
+          this.isLoading = false;
+          this.dataSource.data = res.body ?? [];
+          this.ponude = res;
+
+          this.getTotalPonudjana();
+        },
+        error: () => {
+          this.isLoading = false;
+        },
+      });
+  }
+  nadjiPonudjaci(): void {
+    this.isLoading = true;
+    this.ponudeService
+      .query({
+        'sifraPonudjaca.in': this.sifraPonudjaca,
       })
       .subscribe({
         next: (res: HttpResponse<IPonude[]>) => {
