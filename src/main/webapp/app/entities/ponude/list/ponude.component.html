@@ -119,6 +119,7 @@
       <ng-container matColumnDef="selected">
         <th mat-header-cell *matHeaderCellDef>
           <mat-icon
+            class="sakrij"
             matTooltip="Obrisi selektovne partije"
             style="color: red"
             *jhiHasAnyAuthority="'ROLE_ADMIN'"
@@ -174,6 +175,7 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
       <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
     </table>
+
     <mat-paginator class="mat-paginator-sticky" [pageSizeOptions]="[20, 30, 50, 100]" showFirstLastButtons> </mat-paginator>
   </div>
 </div>

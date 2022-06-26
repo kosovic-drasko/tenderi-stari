@@ -43,3 +43,10 @@ mat-form-field {
   background-color: forestgreen;
   border-color: transparent;
 }
+
+@media print {
+  /* styling goes here */
+  .sakrij {
+    display: none;
+  }
+}
