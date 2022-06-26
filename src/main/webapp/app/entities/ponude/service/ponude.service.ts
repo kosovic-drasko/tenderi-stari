@@ -18,7 +18,6 @@ export class PonudeService {
   public resourceUrlExcelUpload = SERVER_API_URL + 'api/upload';
   public resourceUrlSifraPonudeDelete = this.applicationConfigService.getEndpointFor('api/ponude-delete');
   public resourceUrlPonudePonudjaci = this.applicationConfigService.getEndpointFor('api/ponude_ponudjaci');
-  protected resourceUrlSet = this.applicationConfigService.getEndpointFor('api/set');
 
   constructor(protected http: HttpClient, protected applicationConfigService: ApplicationConfigService) {}
 
@@ -81,9 +80,6 @@ export class PonudeService {
     headers.append('Accept', 'application/json');
 
     return this.http.post(this.resourceUrlExcelUpload, formData, { headers });
-  }
-  set(): any {
-    return this.http.get(this.resourceUrlSet);
   }
 
   deletePonuda(id: number): void {

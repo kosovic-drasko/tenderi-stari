@@ -27,6 +27,7 @@ export class PonudeComponent implements AfterViewInit, OnInit {
   ukupnaPonudjena?: number | null | undefined;
   sifraPostupka?: any;
   sifraPonude?: any;
+  brojPartije?: any;
   isLoading = false;
   aktivno?: boolean;
   id?: number;
@@ -58,8 +59,6 @@ export class PonudeComponent implements AfterViewInit, OnInit {
   message: string | undefined;
   obrisano?: string;
 
-  public resourceUrlExcelDownload = SERVER_API_URL + 'api/ponude/file';
-
   constructor(
     protected ponudeService: PonudeService,
     protected activatedRoute: ActivatedRoute,
@@ -90,7 +89,23 @@ export class PonudeComponent implements AfterViewInit, OnInit {
         },
       });
   }
-
+  public nadjiPoPartiji(): void {
+    this.isLoading = true;
+    this.ponudeService
+      .query({
+        'brojPartije.in': this.brojPartije,
+      })
+      .subscribe({
+        next: (res: HttpResponse<IPonude[]>) => {
+          this.isLoading = false;
+          this.dataSource.data = res.body ?? [];
+          this.getTotalPonudjana();
+        },
+        error: () => {
+          this.isLoading = false;
+        },
+      });
+  }
   nadjiPoSifriPonude(): void {
     this.isLoading = true;
     this.ponudeService
@@ -108,8 +123,15 @@ export class PonudeComponent implements AfterViewInit, OnInit {
         },
       });
   }
+
   sifraPonudeNull(): void {
     this.sifraPonude = null;
+    this.sifraPonude = '';
+    this.getSifraPostupka();
+  }
+  brojPartijeNull(): void {
+    this.brojPartije = null;
+    this.brojPartije = '';
     this.getSifraPostupka();
   }
   startEdit(
@@ -170,10 +192,10 @@ export class PonudeComponent implements AfterViewInit, OnInit {
     this.dataSource.paginator = this.paginator;
   }
 
-  doFilter = (iznos: string): any => {
-    this.dataSource.filter = iznos.trim().toLocaleLowerCase();
-    this.ukupnaPonudjena = this.dataSource.filteredData.map(t => t.ponudjenaVrijednost).reduce((acc, value) => acc! + value!, 0);
-  };
+  // doFilter = (iznos: string): any => {
+  //   this.dataSource.filter = iznos.trim().toLocaleLowerCase();
+  //   this.ukupnaPonudjena = this.dataSource.filteredData.map(t => t.ponudjenaVrijednost).reduce((acc, value) => acc! + value!, 0);
+  // };
 
   isAuthenticated(): boolean {
     return this.accountService.isAuthenticated();
@@ -196,8 +218,10 @@ export class PonudeComponent implements AfterViewInit, OnInit {
       this.loadAll();
     });
   }
+  public resourceUrlExcelDownload = SERVER_API_URL + 'api/ponude/file';
+
   downloadExcel(): void {
-    window.location.href = this.resourceUrlExcelDownload;
+    window.location.href = `${this.resourceUrlExcelDownload}/${this.postupak}`;
   }
   loadAll(): void {
     this.ponudeService.query().subscribe({

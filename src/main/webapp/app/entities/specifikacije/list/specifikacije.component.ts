@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input, OnChanges, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ISpecifikacije } from '../specifikacije.model';
 import { SpecifikacijeService } from '../service/specifikacije.service';
@@ -17,7 +17,7 @@ import { HttpResponse } from '@angular/common/http';
   templateUrl: './specifikacije.component.html',
   styleUrls: ['./specifikacije.scss'],
 })
-export class SpecifikacijeComponent implements AfterViewInit, OnChanges, OnInit {
+export class SpecifikacijeComponent implements AfterViewInit, OnInit {
   specifikacijes?: HttpResponse<ISpecifikacije[]>;
   account: Account | null = null;
   ukupnaProcijenjena?: number;
@@ -82,27 +82,6 @@ export class SpecifikacijeComponent implements AfterViewInit, OnChanges, OnInit 
   sifraPostupkaNull(): void {
     this.sifraPostupka = null;
     this.getSifraPostupka();
-  }
-  nadjiPoSifriPostupka(): void {
-    this.isLoading = true;
-    this.specifikacijaService
-      .query({
-        'sifraPostupka.in': this.sifraPostupka,
-      })
-      .subscribe({
-        next: (res: HttpResponse<ISpecifikacije[]>) => {
-          this.isLoading = false;
-          this.dataSource.data = res.body ?? [];
-          this.getTotalProcjenjena();
-        },
-        error: () => {
-          this.isLoading = false;
-        },
-      });
-  }
-
-  ngOnChanges(): void {
-    this.getSifraPostupka;
   }
   startEdit(
     id?: number,
