@@ -51,250 +51,143 @@ public class Prvorangirani implements Serializable {
     private String sifraPonudjaca;
 
     @Column(name = "naziv_ponudjaca")
-    private String nazaivPonudjaca;
+    private String nazivPonudjaca;
 
     @Column(name = "naziv_proizvodjaca")
     private String nazivProizvodjaca;
 
-    @Column(name = "bod_cijena")
-    private Double bodCijena;
-
-    @Column(name = "bod_rok")
-    private Double bodRok;
-
-    @Column(name = "bod_ukupno")
-    private Double bodUkupno;
-
-    // jhipster-needle-entity-add-field - JHipster will add fields here
-
-    public Long getId() {
-        return this.id;
-    }
-
-    public String getNazivProizvodjaca() {
-        return nazivProizvodjaca;
-    }
-
-    public String getNazaivPonudjaca() {
-        return nazaivPonudjaca;
-    }
-
-    public void setNazivProizvodjaca(String nazivProizvodjaca) {
-        this.nazivProizvodjaca = nazivProizvodjaca;
-    }
-
-    public String getSifraPonudjaca() {
-        return sifraPonudjaca;
-    }
-
-    public void setSifraPonudjaca(String sifraPonudjaca) {
-        this.sifraPonudjaca = sifraPonudjaca;
-    }
-
-    public Prvorangirani id(Long id) {
-        this.setId(id);
-        return this;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Integer getSifraPostupka() {
-        return this.sifraPostupka;
-    }
-
-    public Prvorangirani sifraPostupka(Integer sifraPostupka) {
-        this.setSifraPostupka(sifraPostupka);
-        return this;
-    }
-
     public void setSifraPostupka(Integer sifraPostupka) {
         this.sifraPostupka = sifraPostupka;
-    }
-
-    public Integer getSifraPonude() {
-        return this.sifraPonude;
-    }
-
-    public Prvorangirani sifraPonude(Integer sifraPonude) {
-        this.setSifraPonude(sifraPonude);
-        return this;
     }
 
     public void setSifraPonude(Integer sifraPonude) {
         this.sifraPonude = sifraPonude;
     }
 
-    public Integer getBrojPartije() {
-        return this.brojPartije;
-    }
-
-    public Prvorangirani brojPartije(Integer brojPartije) {
-        this.setBrojPartije(brojPartije);
-        return this;
-    }
-
     public void setBrojPartije(Integer brojPartije) {
         this.brojPartije = brojPartije;
-    }
-
-    public String getAtc() {
-        return this.atc;
-    }
-
-    public Prvorangirani atc(String atc) {
-        this.setAtc(atc);
-        return this;
     }
 
     public void setAtc(String atc) {
         this.atc = atc;
     }
 
-    public String getZasticeniNaziv() {
-        return this.zasticeniNaziv;
-    }
-
-    public Prvorangirani zasticeniNaziv(String zasticeniNaziv) {
-        this.setZasticeniNaziv(zasticeniNaziv);
-        return this;
-    }
-
     public void setZasticeniNaziv(String zasticeniNaziv) {
         this.zasticeniNaziv = zasticeniNaziv;
-    }
-
-    public Integer getTrazenaKolicina() {
-        return this.trazenaKolicina;
-    }
-
-    public Prvorangirani trazenaKolicina(Integer trazenaKolicina) {
-        this.setTrazenaKolicina(trazenaKolicina);
-        return this;
     }
 
     public void setTrazenaKolicina(Integer trazenaKolicina) {
         this.trazenaKolicina = trazenaKolicina;
     }
 
-    public Double getProcijenjenaVrijednost() {
-        return this.procijenjenaVrijednost;
-    }
-
-    public Prvorangirani procijenjenaVrijednost(Double procijenjenaVrijednost) {
-        this.setProcijenjenaVrijednost(procijenjenaVrijednost);
-        return this;
-    }
-
     public void setProcijenjenaVrijednost(Double procijenjenaVrijednost) {
         this.procijenjenaVrijednost = procijenjenaVrijednost;
-    }
-
-    public Double getPonudjenaVrijednost() {
-        return this.ponudjenaVrijednost;
-    }
-
-    public Prvorangirani ponudjenaVrijednost(Double ponudjenaVrijednost) {
-        this.setPonudjenaVrijednost(ponudjenaVrijednost);
-        return this;
     }
 
     public void setPonudjenaVrijednost(Double ponudjenaVrijednost) {
         this.ponudjenaVrijednost = ponudjenaVrijednost;
     }
 
-    public Integer getRokIsporuke() {
-        return this.rokIsporuke;
-    }
-
-    public Prvorangirani rokIsporuke(Integer rokIsporuke) {
-        this.setRokIsporuke(rokIsporuke);
-        return this;
-    }
-
     public void setRokIsporuke(Integer rokIsporuke) {
         this.rokIsporuke = rokIsporuke;
     }
 
-    public Double getBodCijena() {
-        return this.bodCijena;
+    public void setSifraPonudjaca(String sifraPonudjaca) {
+        this.sifraPonudjaca = sifraPonudjaca;
     }
 
-    public Prvorangirani bodCijena(Double bodCijena) {
-        this.setBodCijena(bodCijena);
-        return this;
+    public void setNazivPonudjaca(String nazivPonudjaca) {
+        this.nazivPonudjaca = nazivPonudjaca;
     }
 
-    public void setBodCijena(Double bodCijena) {
-        this.bodCijena = bodCijena;
+    public void setNazivProizvodjaca(String nazivProizvodjaca) {
+        this.nazivProizvodjaca = nazivProizvodjaca;
     }
 
-    public Double getBodRok() {
-        return this.bodRok;
+    public Long getId() {
+        return id;
     }
 
-    public Prvorangirani bodRok(Double bodRok) {
-        this.setBodRok(bodRok);
-        return this;
+    public Integer getSifraPostupka() {
+        return sifraPostupka;
     }
 
-    public void setBodRok(Double bodRok) {
-        this.bodRok = bodRok;
+    public Integer getSifraPonude() {
+        return sifraPonude;
     }
 
-    public Double getBodUkupno() {
-        return this.bodUkupno;
+    public Integer getBrojPartije() {
+        return brojPartije;
     }
 
-    public Prvorangirani bodUkupno(Double bodUkupno) {
-        this.setBodUkupno(bodUkupno);
-        return this;
+    public String getAtc() {
+        return atc;
     }
 
-    public void setBodUkupno(Double bodUkupno) {
-        this.bodUkupno = bodUkupno;
+    public String getZasticeniNaziv() {
+        return zasticeniNaziv;
     }
 
-    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (!(o instanceof Prvorangirani)) {
-            return false;
-        }
-        return id != null && id.equals(((Prvorangirani) o).id);
+    public Integer getTrazenaKolicina() {
+        return trazenaKolicina;
     }
 
-    @Override
-    public int hashCode() {
-        // see https://vladmihalcea.com/how-to-implement-equals-and-hashcode-using-the-jpa-entity-identifier/
-        return getClass().hashCode();
+    public Double getProcijenjenaVrijednost() {
+        return procijenjenaVrijednost;
     }
 
-    // prettier-ignore
+    public Double getPonudjenaVrijednost() {
+        return ponudjenaVrijednost;
+    }
+
+    public Integer getRokIsporuke() {
+        return rokIsporuke;
+    }
+
+    public String getSifraPonudjaca() {
+        return sifraPonudjaca;
+    }
+
+    public String getNazivPonudjaca() {
+        return nazivPonudjaca;
+    }
+
+    public String getNazivProizvodjaca() {
+        return nazivProizvodjaca;
+    }
+
     @Override
     public String toString() {
-        return "Prvorangirani{" +
-            "id=" + getId() +
-            ", sifraPostupka=" + getSifraPostupka() +
-            ", sifraPonude=" + getSifraPonude() +
-            ", brojPartije=" + getBrojPartije() +
-            ", atc='" + getAtc() + "'" +
-          
-            ", zasticeniNaziv='" + getZasticeniNaziv() + "'" +
-           
-            ", trazenaKolicina=" + getTrazenaKolicina() +
-            ", procijenjenaVrijednost=" + getProcijenjenaVrijednost() +
-            ", ponudjenaVrijednost=" + getPonudjenaVrijednost() +
-            ", rokIsporuke=" + getRokIsporuke() +
-            ", sifraPonudjaca='" + getSifraPonudjaca() + "'" +
-            ", bodCijena=" + getBodCijena() +
-            ", bodRok=" + getBodRok() +
-            ", bodUkupno=" + getBodUkupno() +
-            "}";
+        return (
+            "Prvorangirani [atc=" +
+            atc +
+            ", brojPartije=" +
+            brojPartije +
+            ", id=" +
+            id +
+            ", nazivPonudjaca=" +
+            nazivPonudjaca +
+            ", nazivProizvodjaca=" +
+            nazivProizvodjaca +
+            ", ponudjenaVrijednost=" +
+            ponudjenaVrijednost +
+            ", procijenjenaVrijednost=" +
+            procijenjenaVrijednost +
+            ", rokIsporuke=" +
+            rokIsporuke +
+            ", sifraPonude=" +
+            sifraPonude +
+            ", sifraPonudjaca=" +
+            sifraPonudjaca +
+            ", sifraPostupka=" +
+            sifraPostupka +
+            ", trazenaKolicina=" +
+            trazenaKolicina +
+            ", zasticeniNaziv=" +
+            zasticeniNaziv +
+            "]"
+        );
     }
+
+    public Prvorangirani() {}
 }
