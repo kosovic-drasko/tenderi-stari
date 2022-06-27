@@ -34,7 +34,7 @@ public class DownloadFileRestAPIsSpecifikacije {
     @GetMapping("/api/specifikacije/file/{sifraPostupka}")
     public ResponseEntity<InputStreamResource> downloadFile(@PathVariable("sifraPostupka") Integer sifraPostupka) {
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Content-Disposition", "attachment; filename=ponude.xlsx");
+        headers.add("Content-Disposition", "attachment; filename=specifikacije.xlsx");
 
         return ResponseEntity
             .ok()

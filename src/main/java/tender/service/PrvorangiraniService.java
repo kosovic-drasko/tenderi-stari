@@ -85,14 +85,8 @@ public class PrvorangiraniService {
                 if (prvorangirani.getSifraPonudjaca() != null) {
                     existingPrvorangirani.setSifraPonudjaca(prvorangirani.getSifraPonudjaca());
                 }
-                if (prvorangirani.getBodCijena() != null) {
-                    existingPrvorangirani.setBodCijena(prvorangirani.getBodCijena());
-                }
-                if (prvorangirani.getBodRok() != null) {
-                    existingPrvorangirani.setBodRok(prvorangirani.getBodRok());
-                }
-                if (prvorangirani.getBodUkupno() != null) {
-                    existingPrvorangirani.setBodUkupno(prvorangirani.getBodUkupno());
+                if (prvorangirani.getNazivProizvodjaca() != null) {
+                    existingPrvorangirani.setNazivProizvodjaca(prvorangirani.getSifraPonudjaca());
                 }
 
                 return existingPrvorangirani;

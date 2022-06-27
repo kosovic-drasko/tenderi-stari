@@ -41,11 +41,7 @@ public class PrvorangiraniCriteria implements Serializable, Criteria {
 
     private StringFilter sifraPonudjaca;
 
-    private DoubleFilter bodCijena;
-
-    private DoubleFilter bodRok;
-
-    private DoubleFilter bodUkupno;
+    private StringFilter nazivProizvodjaca;
 
     private Boolean distinct;
 
@@ -63,15 +59,30 @@ public class PrvorangiraniCriteria implements Serializable, Criteria {
         this.ponudjenaVrijednost = other.ponudjenaVrijednost == null ? null : other.ponudjenaVrijednost.copy();
         this.rokIsporuke = other.rokIsporuke == null ? null : other.rokIsporuke.copy();
         this.sifraPonudjaca = other.sifraPonudjaca == null ? null : other.sifraPonudjaca.copy();
-        this.bodCijena = other.bodCijena == null ? null : other.bodCijena.copy();
-        this.bodRok = other.bodRok == null ? null : other.bodRok.copy();
-        this.bodUkupno = other.bodUkupno == null ? null : other.bodUkupno.copy();
+        this.nazivProizvodjaca = other.nazivProizvodjaca == null ? null : other.nazivProizvodjaca.copy();
+
         this.distinct = other.distinct;
     }
 
     @Override
     public PrvorangiraniCriteria copy() {
         return new PrvorangiraniCriteria(this);
+    }
+
+    public StringFilter getSifraPonudjaca() {
+        return sifraPonudjaca;
+    }
+
+    public void setSifraPonudjaca(StringFilter sifraPonudjaca) {
+        this.sifraPonudjaca = sifraPonudjaca;
+    }
+
+    public StringFilter getNazivProizvodjaca() {
+        return nazivProizvodjaca;
+    }
+
+    public void setNazivProizvodjaca(StringFilter nazivProizvodjaca) {
+        this.nazivProizvodjaca = nazivProizvodjaca;
     }
 
     public LongFilter getId() {
@@ -299,51 +310,6 @@ public class PrvorangiraniCriteria implements Serializable, Criteria {
         this.sifraPonudjaca = sifraPonudjaca;
     }
 
-    public DoubleFilter getBodCijena() {
-        return bodCijena;
-    }
-
-    public DoubleFilter bodCijena() {
-        if (bodCijena == null) {
-            bodCijena = new DoubleFilter();
-        }
-        return bodCijena;
-    }
-
-    public void setBodCijena(DoubleFilter bodCijena) {
-        this.bodCijena = bodCijena;
-    }
-
-    public DoubleFilter getBodRok() {
-        return bodRok;
-    }
-
-    public DoubleFilter bodRok() {
-        if (bodRok == null) {
-            bodRok = new DoubleFilter();
-        }
-        return bodRok;
-    }
-
-    public void setBodRok(DoubleFilter bodRok) {
-        this.bodRok = bodRok;
-    }
-
-    public DoubleFilter getBodUkupno() {
-        return bodUkupno;
-    }
-
-    public DoubleFilter bodUkupno() {
-        if (bodUkupno == null) {
-            bodUkupno = new DoubleFilter();
-        }
-        return bodUkupno;
-    }
-
-    public void setBodUkupno(DoubleFilter bodUkupno) {
-        this.bodUkupno = bodUkupno;
-    }
-
     public Boolean getDistinct() {
         return distinct;
     }
@@ -377,9 +343,6 @@ public class PrvorangiraniCriteria implements Serializable, Criteria {
             Objects.equals(ponudjenaVrijednost, that.ponudjenaVrijednost) &&
             Objects.equals(rokIsporuke, that.rokIsporuke) &&
             Objects.equals(sifraPonudjaca, that.sifraPonudjaca) &&
-            Objects.equals(bodCijena, that.bodCijena) &&
-            Objects.equals(bodRok, that.bodRok) &&
-            Objects.equals(bodUkupno, that.bodUkupno) &&
             Objects.equals(distinct, that.distinct)
         );
     }
@@ -402,9 +365,6 @@ public class PrvorangiraniCriteria implements Serializable, Criteria {
             ponudjenaVrijednost,
             rokIsporuke,
             sifraPonudjaca,
-            bodCijena,
-            bodRok,
-            bodUkupno,
             distinct
         );
     }
@@ -428,9 +388,7 @@ public class PrvorangiraniCriteria implements Serializable, Criteria {
             (ponudjenaVrijednost != null ? "ponudjenaVrijednost=" + ponudjenaVrijednost + ", " : "") +
             (rokIsporuke != null ? "rokIsporuke=" + rokIsporuke + ", " : "") +
             (sifraPonudjaca != null ? "sifraPonudjaca=" + sifraPonudjaca + ", " : "") +
-            (bodCijena != null ? "bodCijena=" + bodCijena + ", " : "") +
-            (bodRok != null ? "bodRok=" + bodRok + ", " : "") +
-            (bodUkupno != null ? "bodUkupno=" + bodUkupno + ", " : "") +
+      
             (distinct != null ? "distinct=" + distinct + ", " : "") +
             "}";
     }

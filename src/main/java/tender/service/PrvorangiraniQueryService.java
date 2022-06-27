@@ -111,14 +111,9 @@ public class PrvorangiraniQueryService extends QueryService<Prvorangirani> {
             if (criteria.getsifraPonudjaca() != null) {
                 specification = specification.and(buildStringSpecification(criteria.getsifraPonudjaca(), Prvorangirani_.sifraPonudjaca));
             }
-            if (criteria.getBodCijena() != null) {
-                specification = specification.and(buildRangeSpecification(criteria.getBodCijena(), Prvorangirani_.bodCijena));
-            }
-            if (criteria.getBodRok() != null) {
-                specification = specification.and(buildRangeSpecification(criteria.getBodRok(), Prvorangirani_.bodRok));
-            }
-            if (criteria.getBodUkupno() != null) {
-                specification = specification.and(buildRangeSpecification(criteria.getBodUkupno(), Prvorangirani_.bodUkupno));
+            if (criteria.getNazivProizvodjaca() != null) {
+                specification =
+                    specification.and(buildStringSpecification(criteria.getNazivProizvodjaca(), Prvorangirani_.nazivProizvodjaca));
             }
         }
         return specification;

@@ -30,9 +30,6 @@ export class PrvorangiraniComponent implements OnInit, AfterViewInit {
     'rok isporuke',
     'naziv ponudjaca',
     'naziv proizvodjaca',
-    'bod cijena',
-    'bod rok',
-    'bod ukupno',
   ];
 
   public dataSource = new MatTableDataSource<IPrvorangirani>();

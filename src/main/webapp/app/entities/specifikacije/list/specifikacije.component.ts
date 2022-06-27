@@ -155,7 +155,7 @@ export class SpecifikacijeComponent implements AfterViewInit, OnInit {
 
   uploadFile(): any {
     const formData = new FormData();
-    formData.append('uploadfiles', this.fileInput.nativeElement.files[0]);
+    formData.append('files', this.fileInput.nativeElement.files[0]);
 
     this.specifikacijaService.UploadExcel(formData).subscribe((result: { toString: () => string | undefined }) => {
       this.message = result.toString();

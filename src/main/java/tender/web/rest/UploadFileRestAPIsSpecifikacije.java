@@ -18,7 +18,7 @@ public class UploadFileRestAPIsSpecifikacije {
     ExcelFileServicesSpecifikacije excelFileServicesSpecifikacije;
 
     @PostMapping("/api/uploadfiles/specifikacije")
-    public Message uploadFileMulti(@RequestParam("uploadfiles") MultipartFile[] uploadfiles) {
+    public Message uploadFileMulti(@RequestParam("files") MultipartFile[] uploadfiles) {
         // Get file name
         String uploadedFileName = Arrays
             .stream(uploadfiles)

@@ -82,6 +82,7 @@
         "allows": ["public", "private", "protected"]
       }
     ],
+    "@typescript-eslint/restrict-template-expressions": "off",
     "@typescript-eslint/no-shadow": ["error"],
     "@typescript-eslint/no-inferrable-types": "warn",
     "@typescript-eslint/no-unnecessary-condition": "error",

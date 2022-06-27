@@ -24,17 +24,18 @@
     </mat-button-toggle-group>
 
     <mat-form-field>
-      <input matInput [(ngModel)]="brojPartije" matInput placeholder="Broj Partije" (keyup)="nadjiPoPartiji()" />
-      <button *ngIf="brojPartije" matSuffix mat-icon-button aria-label="Clear" (click)="brojPartijeNull()">
-        <mat-icon>close</mat-icon>
-      </button>
-    </mat-form-field>
-    <mat-form-field>
       <input matInput [(ngModel)]="sifraPonude" matInput placeholder="Sifra Ponude" (keyup)="nadjiPoSifriPonude()" />
       <button *ngIf="sifraPonude" matSuffix mat-icon-button aria-label="Clear" (click)="sifraPonudeNull()">
         <mat-icon>close</mat-icon>
       </button>
     </mat-form-field>
+    <mat-form-field>
+      <input matInput [(ngModel)]="brojPartije" matInput placeholder="Broj Partije" (keyup)="nadjiPoPartiji()" />
+      <button *ngIf="brojPartije" matSuffix mat-icon-button aria-label="Clear" (click)="brojPartijeNull()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+
     <!-- <mat-form-field>
       <mat-label>Ponudjaci</mat-label>
       <mat-select formControlName="sifraPonudjaca">
@@ -105,8 +106,8 @@
       <td mat-footer-cell *matFooterCellDef></td>
     </ng-container>
     <ng-container matColumnDef="sifra ponudjaca">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Sifra Ponudjaca</th>
-      <td mat-cell *matCellDef="let element">{{ element.sifraPonudjaca }}</td>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Ponudjac</th>
+      <td mat-cell *matCellDef="let element">{{ element.ponudjaci.nazivPonudjaca }}</td>
       <td mat-footer-cell *matFooterCellDef></td>
     </ng-container>
     <div>

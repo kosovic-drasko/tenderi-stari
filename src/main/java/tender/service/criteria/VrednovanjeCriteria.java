@@ -5,8 +5,6 @@ import java.util.Objects;
 import org.springdoc.api.annotations.ParameterObject;
 import tech.jhipster.service.Criteria;
 import tech.jhipster.service.filter.*;
-import tender.domain.Vrednovanje;
-import tender.web.rest.VrednovanjeResource;
 
 /**
  * Criteria class for the {@link ViewVrednovanje} entity. This class is used
