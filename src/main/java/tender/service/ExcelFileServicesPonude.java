@@ -27,9 +27,19 @@ public class ExcelFileServicesPonude {
         }
     }
 
-    //     Load Data to Excel File
     public ByteArrayInputStream loadFile() {
         List<Ponude> ponude = ponudeRepository.findAll();
+
+        try {
+            ByteArrayInputStream in = ExcelUtilsPonude.customersToExcel(ponude);
+            return in;
+        } catch (IOException e) {}
+
+        return null;
+    }
+
+    public ByteArrayInputStream loadFilePostupak(Integer sifraPostupka) {
+        List<Ponude> ponude = ponudeRepository.findBySifraPostupkaList(sifraPostupka);
 
         try {
             ByteArrayInputStream in = ExcelUtilsPonude.customersToExcel(ponude);
