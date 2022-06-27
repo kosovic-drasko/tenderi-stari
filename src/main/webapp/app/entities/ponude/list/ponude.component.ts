@@ -83,7 +83,6 @@ export class PonudeComponent implements AfterViewInit, OnInit {
           this.isLoading = false;
           this.dataSource.data = res.body ?? [];
           this.ponude = res;
-
           this.getTotalPonudjana();
         },
         error: () => {
@@ -196,14 +195,14 @@ export class PonudeComponent implements AfterViewInit, OnInit {
     const dialogRef = this.dialog.open(PonudeUpdateComponent, {
       data: { Ponude: {}, name: (this.aktivno = false) },
     });
-    dialogRef.afterClosed().subscribe(() => this.loadAll, this.getTotalPonudjana());
+    dialogRef.afterClosed().subscribe(() => this.getSifraPostupka(), this.getTotalPonudjana());
   }
   getTotalPonudjana(): any {
     return (this.ukupnaPonudjena = this.dataSource.filteredData.map(t => t.ponudjenaVrijednost).reduce((acc, value) => acc! + value!, 0));
   }
   deleteSelected(): void {
     this.ponudeService.deleteSelected();
-    this.loadAll;
+    this.getSifraPostupka();
   }
   updateSelected(id: number): any {
     this.ponudeService.updatePersonSelected(id);
@@ -226,7 +225,7 @@ export class PonudeComponent implements AfterViewInit, OnInit {
     formData.append('files', this.fileInput.nativeElement.files[0]);
     this.ponudeService.UploadExcel(formData).subscribe((result: { toString: () => string | undefined }) => {
       this.message = result.toString();
-      this.loadAll();
+      this.getSifraPostupka();
     });
   }
   deleteItem(i: number, id: number): void {
@@ -236,7 +235,7 @@ export class PonudeComponent implements AfterViewInit, OnInit {
       data: { id },
     });
     this.dialog.afterAllClosed.subscribe(() => {
-      this.loadAll();
+      this.getSifraPostupka();
     });
   }
   public resourceUrlExcelDownload = SERVER_API_URL + 'api/ponude/file';
@@ -247,28 +246,10 @@ export class PonudeComponent implements AfterViewInit, OnInit {
   obrazacExcel(): void {
     window.location.href = `${this.resourceUrlExcelDownload}/${this.brojObrazac}`;
   }
-  loadAll(): void {
-    this.ponudeService.query().subscribe({
-      next: (res: HttpResponse<IPonude[]>) => {
-        this.isLoading = false;
-        this.dataSource.data = res.body ?? [];
-        this.ponude = res;
-        this.getTotalPonudjana();
-
-        this.accountService.getAuthenticationState().subscribe((account: Account | null) => (this.account = account));
-        this.login = this.account?.login;
-        // eslint-disable-next-line no-console
-        console.log('Uloga =====>  ', this.account?.login);
-      },
-      error: () => {
-        this.isLoading = false;
-      },
-    });
-  }
 
   deleteSifra(): void {
     this.ponudeService.deleteSifraPonude(this.sifraPonude).subscribe();
-    this.loadAll();
+    this.getSifraPostupka();
   }
   open(content: any): any {
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' });

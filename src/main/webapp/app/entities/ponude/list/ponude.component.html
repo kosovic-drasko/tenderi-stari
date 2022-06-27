@@ -5,7 +5,7 @@
       <mat-button-toggle *jhiHasAnyAuthority="['ROLE_ADMIN', 'ROLE_USER']" matTooltip=" Excel fajl" (click)="downloadExcel()"
         ><img src="../../../../content/images/icons8-microsoft-excel-48.png" alt="" />
       </mat-button-toggle>
-      <mat-button-toggle *jhiHasAnyAuthority="'ROLE_ADMIN'" (click)="addNew()" (keyup.)="loadAll()" matTooltip="Dodaj novu ponudu"
+      <mat-button-toggle *jhiHasAnyAuthority="'ROLE_ADMIN'" (click)="addNew()" (keyup.)="getSifraPostupka()" matTooltip="Dodaj novu ponudu"
         >Dodaj
       </mat-button-toggle>
       <mat-button-toggle *jhiHasAnyAuthority="'ROLE_ADMIN'" matTooltip="Napravi formu za unos Excel" (click)="obrazacExcel()"
@@ -197,7 +197,7 @@
   </div>
   <div class="modal-footer">
     <button mat-button color="primary" (click)="modal.close('Save click')">NE</button>
-    <button mat-button color="warn" (click)="deleteSelected()" (keyup)="loadAll()" (click)="modal.close('Save click')">DA</button>
+    <button mat-button color="warn" (click)="deleteSelected()" (keyup)="getSifraPostupka()" (click)="modal.close('Save click')">DA</button>
   </div>
 </ng-template>
 
