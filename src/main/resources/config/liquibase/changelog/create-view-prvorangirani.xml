@@ -4,7 +4,8 @@
     <createView catalogName="tender" schemaName="public" viewName="view_prvorangirani">
        SELECT 
   view_vrednovanje.id, 
-  view_vrednovanje.sifra_postupka, 
+  view_vrednovanje.sifra_postupka,
+  view_vrednovanje.naziv_ponudjaca, 
   view_vrednovanje.sifra_ponudjaca, 
   view_vrednovanje.sifra_ponude, 
   view_vrednovanje.broj_partije, 

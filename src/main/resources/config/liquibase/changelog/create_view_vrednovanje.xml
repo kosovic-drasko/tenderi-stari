@@ -5,6 +5,7 @@
   <changeSet author="Drasko" id="view-vrednovanje">
     <createView catalogName="tender" schemaName="public" viewName="view_vrednovanje">
 SELECT ponude.*,
+    ponudjaci.naziv_ponudjaca,
     specifikacije.atc,
     specifikacije.trazena_kolicina,
     specifikacije.procijenjena_vrijednost,
@@ -22,6 +23,7 @@ SELECT ponude.*,
 FROM
   public.ponude
   INNER JOIN public.postupci ON (public.ponude.sifra_postupka = public.postupci.sifra_postupka)
+   INNER JOIN public.ponudjaci ON (public.ponude.sifra_ponudjaca  = public.ponudjaci.id)
   INNER JOIN public.specifikacije ON (public.ponude.sifra_postupka = public.specifikacije.sifra_postupka)
   AND (public.ponude.broj_partije = public.specifikacije.broj_partije)
         </createView>

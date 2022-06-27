@@ -39,6 +39,9 @@ public class Vrednovanje implements Serializable {
     @Column(name = "sifra_ponudjaca")
     private String sifraPonudjaca;
 
+    @Column(name = "naziv_ponudjaca")
+    private String nazivPonudjaca;
+
     @Column(name = "zasticeni_naziv")
     private String zasticeniNaziv;
 
@@ -67,6 +70,10 @@ public class Vrednovanje implements Serializable {
 
     public Long getId() {
         return this.id;
+    }
+
+    public String getNazivPonudjaca() {
+        return nazivPonudjaca;
     }
 
     public Vrednovanje id(Long id) {

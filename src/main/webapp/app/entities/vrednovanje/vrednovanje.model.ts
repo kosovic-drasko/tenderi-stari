@@ -6,6 +6,7 @@ export interface IVrednovanje {
   atc?: string | null;
   nazivProizvodjaca?: string | null;
   sifraPonudjaca?: string | null;
+  nazivPonudjaca?: string | null;
   zasticeniNaziv?: string | null;
   trazenaKolicina?: number | null;
   procijenjenaVrijednost?: number | null;
@@ -25,6 +26,7 @@ export class Vrednovanje implements IVrednovanje {
     public atc?: string | null,
     public nazivProizvodjaca?: string | null,
     public sifraPonudjaca?: string | null,
+    public nazivPonudjaca?: string | null,
     public zasticeniNaziv?: string | null,
     public trazenaKolicina?: number | null,
     public procijenjenaVrijednost?: number | null,

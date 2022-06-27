@@ -50,6 +50,9 @@ public class Prvorangirani implements Serializable {
     @Column(name = "sifra_ponudjaca")
     private String sifraPonudjaca;
 
+    @Column(name = "naziv_ponudjaca")
+    private String nazaivPonudjaca;
+
     @Column(name = "naziv_proizvodjaca")
     private String nazivProizvodjaca;
 
@@ -70,6 +73,10 @@ public class Prvorangirani implements Serializable {
 
     public String getNazivProizvodjaca() {
         return nazivProizvodjaca;
+    }
+
+    public String getNazaivPonudjaca() {
+        return nazaivPonudjaca;
     }
 
     public void setNazivProizvodjaca(String nazivProizvodjaca) {
