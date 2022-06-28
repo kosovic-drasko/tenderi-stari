@@ -131,7 +131,6 @@
     <ng-container matColumnDef="selected">
       <th mat-header-cell *matHeaderCellDef>
         <mat-icon
-          class="sakrij"
           matTooltip="Obrisi selektovne partije"
           style="color: red"
           *jhiHasAnyAuthority="'ROLE_ADMIN'"
@@ -152,7 +151,9 @@
     <ng-container matColumnDef="delete" stickyEnd>
       <th mat-header-cell *matHeaderCellDef></th>
       <td mat-cell *matCellDef="let row; let i = index">
-        <mat-icon *jhiHasAnyAuthority="'ROLE_ADMIN'" type="submit" (click)="deleteItem(i, row.id)">delete</mat-icon>
+        <mat-icon style="color: rgb(255, 0, 140)" *jhiHasAnyAuthority="'ROLE_ADMIN'" type="submit" (click)="deleteItem(i, row.id)"
+          >delete</mat-icon
+        >
       </td>
 
       <td mat-footer-cell *matFooterCellDef></td>
