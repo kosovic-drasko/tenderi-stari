@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { UserRouteAccessService } from 'app/core/auth/user-route-access.service';
 import { PonudjaciComponent } from '../list/ponudjaci.component';
-import { PonudjaciDetailComponent } from '../detail/ponudjaci-detail.component';
 import { PonudjaciUpdateComponent } from '../update/ponudjaci-update.component';
 
 const ponudjaciRoute: Routes = [
@@ -12,12 +11,7 @@ const ponudjaciRoute: Routes = [
     component: PonudjaciComponent,
     canActivate: [UserRouteAccessService],
   },
-  {
-    path: ':id/view',
-    component: PonudjaciDetailComponent,
 
-    canActivate: [UserRouteAccessService],
-  },
   {
     path: 'new',
     component: PonudjaciUpdateComponent,
