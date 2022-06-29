@@ -27,8 +27,12 @@ import { ErrorComponent } from './layouts/error/error.component';
 import { JhMaterialModule } from './shared/jh-material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableExporterModule } from 'mat-table-exporter';
+import { VgCoreModule } from 'ngx-videogular';
+import { NgxYoutubePlayerModule } from 'ngx-youtube-player';
 @NgModule({
   imports: [
+    NgxYoutubePlayerModule.forRoot(),
+    VgCoreModule,
     BrowserAnimationsModule,
     BrowserModule,
     SharedModule,

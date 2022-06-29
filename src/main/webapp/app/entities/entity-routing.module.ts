@@ -32,7 +32,8 @@ import { RouterModule } from '@angular/router';
 
       {
         path: 'pomoc',
-        data: { authorities: ['ROLE_MANAGER'], pageTitle: 'tenderApp.pomoc.home.title' },
+        // data: { authorities: ['ROLE_MANAGER'], pageTitle: 'tenderApp.pomoc.home.title' },
+        data: { pageTitle: 'tenderApp.pomoc.home.title' },
         loadChildren: () => import('./pomoc/pomoc.module').then(m => m.PomocModule),
       },
     ]),

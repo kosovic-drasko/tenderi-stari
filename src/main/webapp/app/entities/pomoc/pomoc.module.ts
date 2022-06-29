@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { SharedModule } from 'app/shared/shared.module';
+import { NgxYoutubePlayerModule } from 'ngx-youtube-player';
 import { PomocComponent } from './list/pomoc.component';
 import { PomocRoutingModule } from './route/pomoc-routing.module';
 
 @NgModule({
-  imports: [SharedModule, PomocRoutingModule],
+  imports: [SharedModule, PomocRoutingModule, NgxYoutubePlayerModule.forRoot()],
   declarations: [PomocComponent],
 })
 export class PomocModule {}

@@ -1,4 +1,16 @@
-<video width="320" height="240" controls>
-  <source src="C:\Users\Win\Downloads\novi.mp4" type="video/mp4" />
-  Your browser does not support the video tag.
-</video>
+<!-- <div class="video">
+  <video controls (click)="toggleVideo()" #videoPlayer>
+    <source src="https://vjs.zencdn.net/v/oceans.mp4" type="video/mp4" />
+    Browser not supported
+  </video>
+</div> -->
+<div class="video">
+  <video controls (click)="toggleVideo()" #videoPlayer>
+    <source src="https://vjs.zencdn.net/v/oceans.mp4" type="video/mp4" />
+    Browser not supported
+  </video>
+</div>
+
+<youtube-player [videoId]="id" (ready)="savePlayer($event)" [playerVars]="playerVars"> </youtube-player>
+<button type="button" (click)="playVideo()">Play</button>
+<button type="button" (click)="pauseVideo()">Pause</button>
