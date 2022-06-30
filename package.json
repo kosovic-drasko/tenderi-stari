@@ -100,6 +100,7 @@
     "ngx-infinite-scroll": "13.0.1",
     "ngx-videogular": "^13.2.4",
     "ngx-webstorage": "9.0.0",
+    "ngx-youtube-player": "^9.1.0",
     "rxjs": "7.5.5",
     "tslib": "2.3.1",
     "zone.js": "0.11.4"
