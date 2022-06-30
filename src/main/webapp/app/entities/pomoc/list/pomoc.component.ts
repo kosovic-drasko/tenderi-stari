@@ -5,3 +5,5 @@ import { Component } from '@angular/core';
   templateUrl: './pomoc.component.html',
 })
 export class PomocComponent {}
+{
+}
