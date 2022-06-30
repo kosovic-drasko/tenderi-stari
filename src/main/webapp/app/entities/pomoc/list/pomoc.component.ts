@@ -18,7 +18,7 @@ export class PomocComponent implements OnInit {
   }
   id = 'lExdeVY1IBQ';
   playerVars = {
-    cc_lang_pref: 'en',
+    // cc_lang_pref: 'en',
   };
   player: any;
   savePlayer(player: any) {
